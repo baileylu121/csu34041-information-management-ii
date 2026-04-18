@@ -1,0 +1,196 @@
+CSU34041-2
+
+Faculty of Science, Technology, Engineering and Mathematics
+School of Computer Science & Statistics
+
+Integrated Computer Science
+Joint Honors
+Management Science and Information Systems Studies
+Year 3 Annual Examinations
+
+Semester 2 2025
+
+Information Management II
+
+09:30 - 11:30
+
+24th April 2025
+Prof Yvette Graham
+
+Instructions to Candidates:
+Attempt three questions in total. Question 1 is mandatory. Answer any two questions from
+Question 2, Question 3 and Question 4
+All questions carry equal marks. Each question is scored out of a total of 25 marks.
+Do not begin the exam until instructed to do so by an invigilator.
+Materials permitted: None
+
+CSU34041-2
+
+Q. 1
+A relational database is required to keep track of transport ships and their locations for
+maritime authorities, recording the movement of ships between ports and the current
+location of a given ship. The database should keep track of the types of ships stored in the
+database by recording the tonnage and hull type of each ship, which can be any one of the
+following: flat-bottom, round-bottom, v-shaped, or multi-hulled. The database also needs to
+record information about the ports that each ship visits, including the country the port is
+located in, and the continent of that country, in addition to the sea, ocean or lake it is located
+on. Each ship will have a home port, the port it is ordinarily docked in. Each visit to a port by
+a ship is recorded as well as the port at which a given ship is docked at any given time (it can
+alternatively be in transit). The current location of a ship is recorded at 5 minute intervals,
+and at any point in time, the database is able to retrieve a complete ship movement history
+for any ship in the database.
+
+(i)
+
+Provide a suitable Entity Relationship schema for the above SHIP_TRACKING
+database. Make sure to state any assumptions you make.
+[10 marks]
+
+(ii)
+
+Map the ER schema into a relational database schema and specify all primary
+and foreign keys. Again, state any assumptions you make.
+[15 marks]
+
+Page 2 of 7
+
+© Trinity College Dublin, The University of Dublin 2025
+
+CSU34041-2
+
+Q. 2
+A relational database is required to record airline flight information. Each flight should be
+identified by a flight number, and consists of one or more flight legs with leg numbers 1, 2, 3,
+and so on. Each flight leg has scheduled arrival and departure times, airports, and one or more
+leg instances, one for each date on which the flight travels. Fares are also recorded for each
+flight. For each flight leg instance, seat reservations are kept, as are the airplane used on the
+leg and the actual arrival and departure times and airports. An airplane is identified by an
+airplane id and is of a particular airplane type. A record needs to be kept of which airplane
+types are allowed to land at which airports, with distinct airports identified by a unique airport
+code. The relational schema is shown below.
+
+Page 3 of 7
+
+© Trinity College Dublin, The University of Dublin 2025
+
+CSU34041-2
+
+Specify the following queries in relational algebra for the above database.
+(a) For each flight, list the flight number, airline, date, departure airport and arrival
+airport along with the number of available seats, for each leg.
+[5 marks]
+(b) For all the airplane types available in the database, list the airplane type, name of
+the company, maximum seats available and the airports (or airport codes) where
+these planes can land.
+[5 marks]
+(c) List the name, seat number and phone numbers of all the customers of all flights or
+flight legs that departed from Houston Intercontinental Airport (airport code ‘iah’)
+and arrived in Los Angeles International Airport (airport code ‘lax’) on ’2016-03-16’.
+[5 marks]
+(d) List fare information for all the flights run by the airline ‘Delta Airlines’.
+[5 marks]
+(e) Retrieve the number of available seats on all flights run by Delta Airline, on ‘2016-0409’.
+[5 marks]
+
+Page 4 of 7
+
+© Trinity College Dublin, The University of Dublin 2025
+
+CSU34041-2
+
+Q 3.
+
+The above relational database stores student and course information for a university where
+information about primary and foreign keys is not explicitly stated. Specify the following
+queries in SQL on the database schema.
+(i)
+
+Create each of the tables in the above schema. Making sure to appropriate apply
+constraints, include primary and foreign keys.
+[4 marks]
+
+Page 5 of 7
+
+© Trinity College Dublin, The University of Dublin 2025
+
+CSU34041-2
+
+(ii)
+
+Retrieve the names of all courses along with the name of the instructor taught
+during the fall of 2008.
+[4 marks]
+
+(iii)
+
+For each section taught by Professor Anderson, retrieve the course number,
+semester, year, and number of students who took the section.
+[4 marks]
+
+(iv)
+
+Retrieve the name and transcript of each junior student (Class = 1) majoring in
+mathematics (MATH). A transcript includes course name, course number, credit
+hours, semester, year, and grade for each course completed by the student.
+[4 marks]
+
+(v)
+
+Retrieve the names and major departments of all straight-A students (students
+who have a grade of A in all their courses).
+[4 marks]
+
+(vi)
+
+Retrieve the names and major departments of all students who do not have any
+grade of A in any of their courses.
+[5 marks]
+
+Page 6 of 7
+
+© Trinity College Dublin, The University of Dublin 2025
+
+CSU34041-2
+
+Q 4.
+(i)
+
+Consider the following two transactions, T1 and T2, and their operations. Analyze
+the following operations and explain whether T2 operations are updated
+successfully when T1 is rollback.
+[5 marks]
+
+T1
+Read(X)
+X=X–2
+Write(X)
+
+T2
+
+Read(x)
+X=X+3
+Write(X)
+ROLLBACK
+COMMIT
+
+(ii)
+
+Does strict two-phase locking always guarantee strict schedules? Explain your
+answer in detail.
+[12 marks]
+
+(iii)
+
+Provide a definition for deadlock.
+[3 marks]
+
+(iv)
+
+Does cautious waiting avoid deadlock?
+[5 marks]
+
+Page 7 of 7
+
+© Trinity College Dublin, The University of Dublin 2025
+
+
