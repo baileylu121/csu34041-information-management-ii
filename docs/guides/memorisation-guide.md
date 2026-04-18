@@ -1,4 +1,4 @@
-# CSU 34041 — Memorisation Guide
+# Memorisation Guide
 
 > Rote-learn these. These are the facts, definitions, and patterns you'll need to recall under exam pressure.
 

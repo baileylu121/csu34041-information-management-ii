@@ -1,7 +1,5 @@
 # Introduction to NoSQL
 
-**CSU34041** — Yvette Graham — ygraham@tcd.ie
-
 ---
 
 ## Data Structures

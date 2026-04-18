@@ -1,4 +1,4 @@
-# Sample Exam 2026
+# 2026 Sample
 
 The exam has two parts:
 

@@ -1,8 +1,4 @@
-# CSU 34041 — Information Management II
-
-## Introduction
-
-**Lecturer:** Prof Yvette Graham
+# Introduction to Databases
 
 ---
 

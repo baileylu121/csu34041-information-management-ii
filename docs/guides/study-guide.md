@@ -1,4 +1,4 @@
-# CSU 34041 — Information Management II: Study Guide
+# Study Guide
 
 > Based on lecture content and past exam papers (2022–2026)
 

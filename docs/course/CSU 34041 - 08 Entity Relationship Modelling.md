@@ -1,8 +1,5 @@
 # Entity Relationship Modelling
 
-**CSU 34041 — Information Management II**  
-_Information Management and Data Engineering_
-
 ---
 
 ## Today's Lecture

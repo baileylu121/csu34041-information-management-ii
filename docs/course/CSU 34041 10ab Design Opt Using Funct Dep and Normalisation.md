@@ -1,7 +1,5 @@
 # Design Optimisation
 
-**CSU34041** · Yvette Graham
-
 ---
 
 ## Lecture Outline

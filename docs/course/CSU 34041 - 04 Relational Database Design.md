@@ -1,6 +1,4 @@
-# CSU 34041 — Information Management II
-
-## Relational Database Modelling and Functional Dependency
+# Relational Database Modelling and Functional Dependency
 
 ---
 

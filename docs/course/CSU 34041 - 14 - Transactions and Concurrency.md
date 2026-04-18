@@ -1,10 +1,5 @@
 # Transactions and Concurrency Control
 
-> **Course:** CSU34041 — Information Management II  
-> **Instructor:** Yvette Graham  
-> **Email:** ygraham@tcd.ie  
-> **Recommended Reading:** Chapters 20 & 21, _Fundamentals of Database Systems_, Elmasri & Navathe, 7th Edition
-
 ---
 
 ## Table of Contents

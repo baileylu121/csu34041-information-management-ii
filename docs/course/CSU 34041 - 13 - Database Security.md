@@ -1,7 +1,4 @@
-# CSU34041 — Database Security
-
-**Lecturer:** Yvette Graham  
-**Email:** ygraham@tcd.ie
+# Database Security
 
 ---
 

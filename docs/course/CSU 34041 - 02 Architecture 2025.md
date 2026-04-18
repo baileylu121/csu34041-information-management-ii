@@ -1,9 +1,4 @@
-# CSU 34041 – Information Management II
-
-## 2. Database Architecture
-
-**Instructor:** Yvette Graham  
-**Email:** yvette.graham@tcd.ie
+# Database Architecture
 
 ---
 

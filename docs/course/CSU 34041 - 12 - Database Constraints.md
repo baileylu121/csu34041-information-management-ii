@@ -1,7 +1,4 @@
-# CSU34041 — Database Constraints
-
-**Lecturer:** Yvette Graham  
-**Email:** ygraham@tcd.ie
+# Database Constraints
 
 ---
 

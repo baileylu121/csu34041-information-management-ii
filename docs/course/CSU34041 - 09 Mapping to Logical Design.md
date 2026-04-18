@@ -1,6 +1,4 @@
-# CSU 34041 — Information Management II
-
-## 9. Mapping to Logical Design
+# Mapping to Logical Design
 
 ---
 

@@ -1,9 +1,4 @@
-# CSU 34041 — Information Management II
-
-## Relational Algebra & the Relational Model
-
-**Lecturer:** Yvette Graham  
-**Email:** Yvette.Graham@tcd.ie
+# Relational Algebra & the Relational Model
 
 ---
 
