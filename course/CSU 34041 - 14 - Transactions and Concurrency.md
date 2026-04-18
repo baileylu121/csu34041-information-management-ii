@@ -3,7 +3,7 @@
 > **Course:** CSU34041 — Information Management II  
 > **Instructor:** Yvette Graham  
 > **Email:** ygraham@tcd.ie  
-> **Recommended Reading:** Chapters 20 & 21, *Fundamentals of Database Systems*, Elmasri & Navathe, 7th Edition
+> **Recommended Reading:** Chapters 20 & 21, _Fundamentals of Database Systems_, Elmasri & Navathe, 7th Edition
 
 ---
 
@@ -54,10 +54,10 @@ Airline reservations, credit card processing, online shopping — these are exam
 
 **Transactions** and **Concurrency Control** are the mechanisms by which a DBMS manages complex processes and multi-user access.
 
-| Concept | Definition |
-|---|---|
-| **Transaction** | A logical unit of DB processing that is completed in its entirety to ensure correctness |
-| **Concurrency Control** | Used when two operations try to access the same data at the same time |
+| Concept                 | Definition                                                                              |
+| ----------------------- | --------------------------------------------------------------------------------------- |
+| **Transaction**         | A logical unit of DB processing that is completed in its entirety to ensure correctness |
+| **Concurrency Control** | Used when two operations try to access the same data at the same time                   |
 
 ---
 
@@ -69,18 +69,18 @@ A transaction includes one or more DB access operations:
 
 Transactions are classified into two types:
 
-| Type | Description |
-|---|---|
-| **Read-Only Transactions** | The DB operations retrieve data, but do *not* update any information |
-| **Read-Write Transactions** | Transactions which update the DB |
+| Type                        | Description                                                          |
+| --------------------------- | -------------------------------------------------------------------- |
+| **Read-Only Transactions**  | The DB operations retrieve data, but do _not_ update any information |
+| **Read-Write Transactions** | Transactions which update the DB                                     |
 
 ### Transaction Termination
 
 The end of a transaction is signalled by one of two outcomes:
 
-| Outcome | Description |
-|---|---|
-| **Commit** | Successful termination — completes the current transaction, making its changes permanent |
+| Outcome              | Description                                                                                                        |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| **Commit**           | Successful termination — completes the current transaction, making its changes permanent                           |
 | **Rollback / Abort** | Unsuccessful termination — undoes the operations in the current transaction, cancelling the changes made to the DB |
 
 ### Transaction Failure
@@ -95,12 +95,12 @@ There are a number of reasons why a transaction might fail:
 
 All transactions should possess the **ACID** properties:
 
-| Property | Description |
-|---|---|
-| **Atomicity** | A transaction is an atomic unit of processing — it should either be performed in its entirety, or not performed at all |
-| **Consistency Preservation** | A transaction should preserve the consistency of the DB — it should take the database from one consistent state to another |
-| **Isolation** | A transaction should appear as though it is being executed in isolation — the execution of a transaction should not be interfered with by any other transactions executing concurrently |
-| **Durability (Permanency)** | The changes applied by a committed transaction must persist in the database — these changes must not be lost because of any failure |
+| Property                     | Description                                                                                                                                                                             |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Atomicity**                | A transaction is an atomic unit of processing — it should either be performed in its entirety, or not performed at all                                                                  |
+| **Consistency Preservation** | A transaction should preserve the consistency of the DB — it should take the database from one consistent state to another                                                              |
+| **Isolation**                | A transaction should appear as though it is being executed in isolation — the execution of a transaction should not be interfered with by any other transactions executing concurrently |
+| **Durability (Permanency)**  | The changes applied by a committed transaction must persist in the database — these changes must not be lost because of any failure                                                     |
 
 ---
 
@@ -156,16 +156,18 @@ Two operations in a schedule are said to **conflict** if:
 
 ### Serial Schedules
 
-**Formally:** A schedule *S* is **serial** if, for every transaction *T* participating in the schedule, all operations of *T* are executed consecutively. Otherwise, the schedule is **non-serial**.
+**Formally:** A schedule _S_ is **serial** if, for every transaction _T_ participating in the schedule, all operations of _T_ are executed consecutively. Otherwise, the schedule is **non-serial**.
 
 In a serial schedule:
+
 - Only **one transaction is executed at a time**
 - The commit (or abort) of the active transaction initiates execution of the next transaction
 
 > **Assumption:** Every serial schedule is correct.
+>
 > - All transactions should be independent (**Isolation**)
 > - Each transaction is assumed to be correct if executed on its own (**Consistency Preservation**)
-> - Hence, the ordering of transactions in a serial schedule does *not* matter — once every transaction is executed from beginning to end, the result is correct.
+> - Hence, the ordering of transactions in a serial schedule does _not_ matter — once every transaction is executed from beginning to end, the result is correct.
 
 ### Issues with Serial Schedules
 
@@ -190,7 +192,7 @@ If a non-serial schedule meets either criterion, it is said to be **serializable
 
 Being able to say that a schedule is serializable is the same as saying it is **correct**:
 
-> All serial schedules are correct → If schedule *S* is equivalent to a serial schedule → Hence, *S* is also correct.
+> All serial schedules are correct → If schedule _S_ is equivalent to a serial schedule → Hence, _S_ is also correct.
 
 Serializable schedules give the benefit of **concurrent execution** without giving up **correctness**.
 
@@ -204,14 +206,14 @@ Two schedules are said to be **result equivalent** if they produce the **same fi
 
 Two schedules are said to be **conflict equivalent** if the order of any two **conflicting operations** is the same in both schedules.
 
-> **Reminder:** Two operations conflict if they belong to different transactions, access the same item *X*, and at least one is a write.
+> **Reminder:** Two operations conflict if they belong to different transactions, access the same item _X_, and at least one is a write.
 
 If two conflicting operations are applied in different orders, the effect on the DB can be different:
 
-| Scenario | Example | Why Not Equivalent |
-|---|---|---|
-| **Read / Write** | S_A: `r₁(X), w₂(X)` vs S_B: `w₂(X), r₁(X)` | The value read by `r₁(X)` may differ — it may have been updated by the write |
-| **Write / Write** | S_A: `w₁(X), w₂(X)` vs S_B: `w₂(X), w₁(X)` | The next `r(X)` will read potentially different values; the final value of *X* may differ |
+| Scenario          | Example                                    | Why Not Equivalent                                                                        |
+| ----------------- | ------------------------------------------ | ----------------------------------------------------------------------------------------- |
+| **Read / Write**  | S_A: `r₁(X), w₂(X)` vs S_B: `w₂(X), r₁(X)` | The value read by `r₁(X)` may differ — it may have been updated by the write              |
+| **Write / Write** | S_A: `w₁(X), w₂(X)` vs S_B: `w₂(X), w₁(X)` | The next `r(X)` will read potentially different values; the final value of _X_ may differ |
 
 **Determining serializability:** Swap non-conflicting operations to see if a schedule can be transformed into an equivalent serial schedule.
 
@@ -243,14 +245,15 @@ A binary lock can have only two states: **locked** and **unlocked**.
 
 Two operations are used:
 
-| Operation | Description |
-|---|---|
-| `lock_item` | Request a lock on the item |
-| `unlock_item` | Release the lock |
+| Operation     | Description                |
+| ------------- | -------------------------- |
+| `lock_item`   | Request a lock on the item |
+| `unlock_item` | Release the lock           |
 
 Each transaction locks the item **before** using it, and **unlocks** it when finished.
 
 > Binary locking is **rarely used** because it is too restrictive:
+>
 > - At most, **one transaction** can access each item
 > - Several transactions should be able to access a data item **concurrently for read access**
 
@@ -262,16 +265,16 @@ However, if a transaction is to **write** an item, it must have **exclusive acce
 
 Three locking operations:
 
-| Operation | Description |
-|---|---|
-| `read_lock` | Acquire a shared (read) lock |
+| Operation    | Description                       |
+| ------------ | --------------------------------- |
+| `read_lock`  | Acquire a shared (read) lock      |
 | `write_lock` | Acquire an exclusive (write) lock |
-| `unlock` | Release the lock |
+| `unlock`     | Release the lock                  |
 
-| Lock Type | Also Known As | Behaviour |
-|---|---|---|
-| **Read-locked** | Shared lock | Allows other transactions to also read the item |
-| **Write-locked** | Exclusive lock | Only a single transaction has access |
+| Lock Type        | Also Known As  | Behaviour                                       |
+| ---------------- | -------------- | ----------------------------------------------- |
+| **Read-locked**  | Shared lock    | Allows other transactions to also read the item |
+| **Write-locked** | Exclusive lock | Only a single transaction has access            |
 
 #### Lock Conversion
 
@@ -283,9 +286,9 @@ A transaction may need to **upgrade** or **downgrade** a lock (e.g., from read t
 
 The **Two-Phase Locking** protocol ensures serializability. Every transaction's lock operations can be divided into two phases:
 
-| Phase | Behaviour |
-|---|---|
-| **Growing Phase** | The transaction may **acquire** locks but **cannot release** any |
+| Phase               | Behaviour                                                        |
+| ------------------- | ---------------------------------------------------------------- |
+| **Growing Phase**   | The transaction may **acquire** locks but **cannot release** any |
 | **Shrinking Phase** | The transaction may **release** locks but **cannot acquire** any |
 
 > Once a transaction releases any lock, it enters the shrinking phase and cannot acquire further locks.
@@ -322,9 +325,9 @@ A transaction **never waits** for a lock:
 
 A **timestamp-based** scheme where older transactions **wait** for younger ones, and younger transactions **die** (abort) when requesting locks held by older ones.
 
-| Scenario | Action |
-|---|---|
-| **Older** transaction requests lock held by **younger** | **Wait** — older transaction waits |
+| Scenario                                                | Action                                               |
+| ------------------------------------------------------- | ---------------------------------------------------- |
+| **Older** transaction requests lock held by **younger** | **Wait** — older transaction waits                   |
 | **Younger** transaction requests lock held by **older** | **Die** — younger transaction aborts, restarts later |
 
 > Older transactions have priority. A younger transaction is rolled back preemptively.
@@ -333,20 +336,20 @@ A **timestamp-based** scheme where older transactions **wait** for younger ones,
 
 The **opposite** of Wait-Die — older transactions **preempt** younger ones.
 
-| Scenario | Action |
-|---|---|
+| Scenario                                                | Action                                                           |
+| ------------------------------------------------------- | ---------------------------------------------------------------- |
 | **Older** transaction requests lock held by **younger** | **Wound** — older transaction aborts the younger one, then waits |
-| **Younger** transaction requests lock held by **older** | **Wait** — younger transaction waits |
+| **Younger** transaction requests lock held by **older** | **Wait** — younger transaction waits                             |
 
 > Older transactions have priority. An older transaction "wounds" (forces rollback of) a younger holder.
 
 ##### Wait-Die vs. Wound-Wait Summary
 
-| | Wait-Die | Wound-Wait |
-|---|---|---|
-| **Older requests younger's lock** | Older **waits** | Older **wounds** (preempts) |
-| **Younger requests older's lock** | Younger **dies** (aborts) | Younger **waits** |
-| **Deadlock possibility** | None (no cycles possible) | None (no cycles possible) |
+|                                   | Wait-Die                  | Wound-Wait                  |
+| --------------------------------- | ------------------------- | --------------------------- |
+| **Older requests younger's lock** | Older **waits**           | Older **wounds** (preempts) |
+| **Younger requests older's lock** | Younger **dies** (aborts) | Younger **waits**           |
+| **Deadlock possibility**          | None (no cycles possible) | None (no cycles possible)   |
 
 ##### Cautious Waiting
 
@@ -397,27 +400,27 @@ The protocol ensures that transactions are processed in **timestamp order**, mai
 
 ## Summary
 
-| Topic | Key Points |
-|---|---|
-| **Transaction** | Logical unit of processing; commit or rollback |
-| **Properties / Failure** | ACID: Atomicity, Consistency, Isolation, Durability |
-| **Concurrency Control** | Prevents lost updates, dirty reads, incorrect summaries |
-| **Schedules** | Serial vs. non-serial; serializability ensures correctness |
-| **Serial Schedules** | Correct but limit concurrency |
-| **Schedule Conflicts** | Different transactions, same item, at least one write |
-| **Result Equivalence** | Same final DB state |
-| **Conflict Equivalence** | Same order of conflicting operations |
-| **Locking** | Binary (rare), Read/Write (shared/exclusive) |
-| **Binary Lock** | Locked / Unlocked; too restrictive |
-| **Read/Write Lock** | Shared (read) and Exclusive (write) modes |
-| **Lock Conversion** | Upgrading or downgrading lock modes |
-| **Two-Phase Locking** | Growing phase (acquire only) → Shrinking phase (release only); guarantees conflict serializability |
-| **Deadlock** | Circular wait for locks |
-| **Deadlock Prevention** | No-Waiting, Wait-Die, Wound-Wait, Cautious Waiting |
-| **Deadlock Detection** | Wait-for graph + cycle detection |
-| **Starvation** | Indefinite delay; solved via age-based priority, timeouts, fair queuing |
-| **Timestamp Ordering** | Lock-free protocol using transaction timestamps to enforce serializability |
+| Topic                    | Key Points                                                                                         |
+| ------------------------ | -------------------------------------------------------------------------------------------------- |
+| **Transaction**          | Logical unit of processing; commit or rollback                                                     |
+| **Properties / Failure** | ACID: Atomicity, Consistency, Isolation, Durability                                                |
+| **Concurrency Control**  | Prevents lost updates, dirty reads, incorrect summaries                                            |
+| **Schedules**            | Serial vs. non-serial; serializability ensures correctness                                         |
+| **Serial Schedules**     | Correct but limit concurrency                                                                      |
+| **Schedule Conflicts**   | Different transactions, same item, at least one write                                              |
+| **Result Equivalence**   | Same final DB state                                                                                |
+| **Conflict Equivalence** | Same order of conflicting operations                                                               |
+| **Locking**              | Binary (rare), Read/Write (shared/exclusive)                                                       |
+| **Binary Lock**          | Locked / Unlocked; too restrictive                                                                 |
+| **Read/Write Lock**      | Shared (read) and Exclusive (write) modes                                                          |
+| **Lock Conversion**      | Upgrading or downgrading lock modes                                                                |
+| **Two-Phase Locking**    | Growing phase (acquire only) → Shrinking phase (release only); guarantees conflict serializability |
+| **Deadlock**             | Circular wait for locks                                                                            |
+| **Deadlock Prevention**  | No-Waiting, Wait-Die, Wound-Wait, Cautious Waiting                                                 |
+| **Deadlock Detection**   | Wait-for graph + cycle detection                                                                   |
+| **Starvation**           | Indefinite delay; solved via age-based priority, timeouts, fair queuing                            |
+| **Timestamp Ordering**   | Lock-free protocol using transaction timestamps to enforce serializability                         |
 
 ---
 
-*End of lecture — CSU34041 Transactions and Concurrency Control*
+_End of lecture — CSU34041 Transactions and Concurrency Control_

@@ -52,11 +52,11 @@ Database users are provided an **abstract view** of the data by hiding certain d
 
 A DBMS describes databases at three levels:
 
-| Level | Description |
-|-------|-------------|
-| **Internal (Physical) Level** | Lowest level — how data is physically stored and organized on the storage medium |
+| Level                          | Description                                                                                 |
+| ------------------------------ | ------------------------------------------------------------------------------------------- |
+| **Internal (Physical) Level**  | Lowest level — how data is physically stored and organized on the storage medium            |
 | **Conceptual (Logical) Level** | Logical structure of the entire database — what data is stored and relationships among data |
-| **External (View) Level** | Highest level — individual user's view of the database |
+| **External (View) Level**      | Highest level — individual user's view of the database                                      |
 
 This is commonly referred to as the **"three-level DBMS architecture."**
 
@@ -110,12 +110,12 @@ A database consists of physical data organized into:
 
 Four main types of users, each typically using different interfaces:
 
-| User Type | Description |
-|-----------|-------------|
-| **Casual Users** | Occasionally access the database; use interactive query interfaces |
-| **Application Programmers** | Write programs (Java, C++, etc.) that need to access the database |
-| **Parametric Users** | Use compiled transactions and supply parameters; don't write their own commands |
-| **DBA Staff** | Database Administrators with full privileges |
+| User Type                   | Description                                                                     |
+| --------------------------- | ------------------------------------------------------------------------------- |
+| **Casual Users**            | Occasionally access the database; use interactive query interfaces              |
+| **Application Programmers** | Write programs (Java, C++, etc.) that need to access the database               |
+| **Parametric Users**        | Use compiled transactions and supply parameters; don't write their own commands |
+| **DBA Staff**               | Database Administrators with full privileges                                    |
 
 ### DDL (Data Definition Language) Components
 
@@ -233,4 +233,4 @@ This lecture covered:
 
 ---
 
-*Lecture by Yvette Graham — CSU 34041 Information Management II*
+_Lecture by Yvette Graham — CSU 34041 Information Management II_

@@ -38,7 +38,7 @@ yvette.graham@tcd.ie
 
 ### Example
 
-*Example src: [YouTube](https://www.youtube.com/@lucid_software)*
+_Example src: [YouTube](https://www.youtube.com/@lucid_software)_
 
 A single spreadsheet to store data about the real world quickly gets unwieldy and unmanageable.
 
@@ -221,7 +221,7 @@ It:
 
 > **Parametric users** don't write their own commands — they use compiled transactions and supply the necessary parameters.
 >
-> *E.g. they might provide a customer ID and use a compiled transaction to find out their phone number.*
+> _E.g. they might provide a customer ID and use a compiled transaction to find out their phone number._
 
 ---
 
@@ -282,6 +282,7 @@ A fully functional **Data Dictionary System (DDS)** should store and manage:
 **a)** Descriptions of the database schemas
 
 **b)** Detailed information on physical database design:
+
 - Storage structures
 - Access paths
 - File and record sizes

@@ -66,11 +66,11 @@ REVOKE SELECT ON Employees FROM user1;
 
 **Which of the following is TRUE?**
 
-| | |
-|---|---|
-| **A.** | user1 loses both SELECT and UPDATE privileges |
-| **B.** | user1 retains UPDATE but loses SELECT |
-| **C.** | user1 retains both privileges due to dependency |
+|        |                                                                     |
+| ------ | ------------------------------------------------------------------- |
+| **A.** | user1 loses both SELECT and UPDATE privileges                       |
+| **B.** | user1 retains UPDATE but loses SELECT                               |
+| **C.** | user1 retains both privileges due to dependency                     |
 | **D.** | user1 cannot perform any operations until privileges are reassigned |
 
 ---
@@ -86,12 +86,12 @@ Consider the following schedule involving two transactions:
 
 **Which statement is correct?**
 
-| | |
-|---|---|
-| **A.** | The schedule is conflict-serializable |
+|        |                                                                 |
+| ------ | --------------------------------------------------------------- |
+| **A.** | The schedule is conflict-serializable                           |
 | **B.** | The schedule is view-serializable but not conflict-serializable |
-| **C.** | The schedule is not serializable |
-| **D.** | The schedule is strict |
+| **C.** | The schedule is not serializable                                |
+| **D.** | The schedule is strict                                          |
 
 ---
 
@@ -99,12 +99,12 @@ Consider the following schedule involving two transactions:
 
 Which of the following scenarios **BEST** justifies using a document-oriented NoSQL database over a relational database?
 
-| | |
-|---|---|
+|        |                                                                |
+| ------ | -------------------------------------------------------------- |
 | **A.** | Strong ACID guarantees are required for financial transactions |
-| **B.** | Data schema is fixed and highly normalised |
-| **C.** | Frequent schema evolution with nested, semi-structured data |
-| **D.** | Complex joins across multiple tables are required |
+| **B.** | Data schema is fixed and highly normalised                     |
+| **C.** | Frequent schema evolution with nested, semi-structured data    |
+| **D.** | Complex joins across multiple tables are required              |
 
 ---
 
@@ -118,12 +118,12 @@ Orders(order_id, customer_id, amount)
 
 Which query returns customers whose total order amount exceeds 1000?
 
-| | |
-|---|---|
-| **A.** | `SELECT customer_id FROM Orders WHERE SUM(amount) > 1000;` |
+|        |                                                                                  |
+| ------ | -------------------------------------------------------------------------------- |
+| **A.** | `SELECT customer_id FROM Orders WHERE SUM(amount) > 1000;`                       |
 | **B.** | `SELECT customer_id FROM Orders GROUP BY customer_id HAVING SUM(amount) > 1000;` |
-| **C.** | `SELECT customer_id FROM Orders WHERE amount > 1000;` |
-| **D.** | `SELECT DISTINCT customer_id FROM Orders HAVING SUM(amount) > 1000;` |
+| **C.** | `SELECT customer_id FROM Orders WHERE amount > 1000;`                            |
+| **D.** | `SELECT DISTINCT customer_id FROM Orders HAVING SUM(amount) > 1000;`             |
 
 ---
 
@@ -131,12 +131,12 @@ Which query returns customers whose total order amount exceeds 1000?
 
 Under GDPR, which of the following is considered a lawful basis for processing personal data?
 
-| | |
-|---|---|
-| **A.** | Data is publicly available |
+|        |                                           |
+| ------ | ----------------------------------------- |
+| **A.** | Data is publicly available                |
 | **B.** | User consent has been explicitly obtained |
-| **C.** | The company benefits financially |
-| **D.** | Data is anonymised after processing |
+| **C.** | The company benefits financially          |
+| **D.** | Data is anonymised after processing       |
 
 ---
 
@@ -151,12 +151,12 @@ ADD CONSTRAINT chk_salary CHECK (salary > 0 AND salary < 100000);
 
 **Which statement is TRUE?**
 
-| | |
-|---|---|
-| **A.** | The constraint is enforced only during insertion |
-| **B.** | The constraint can be bypassed using transactions |
+|        |                                                                 |
+| ------ | --------------------------------------------------------------- |
+| **A.** | The constraint is enforced only during insertion                |
+| **B.** | The constraint can be bypassed using transactions               |
 | **C.** | The constraint is enforced on both INSERT and UPDATE operations |
-| **D.** | The constraint guarantees uniqueness of salary values |
+| **D.** | The constraint guarantees uniqueness of salary values           |
 
 ---
 
@@ -173,12 +173,12 @@ A company based in Ireland operates an e-commerce platform and processes custome
 
 **Which of the following is the MOST accurate assessment under GDPR?**
 
-| | |
-|---|---|
+|        |                                                                                                                  |
+| ------ | ---------------------------------------------------------------------------------------------------------------- |
 | **A.** | The company is compliant because initial consent was originally obtained and then updated to include advertising |
-| **B.** | The company is non-compliant due to unlawful processing and incomplete erasure |
-| **C.** | The company is compliant if data is only used internally for analytics |
-| **D.** | The company is non-compliant because GDPR is a basic human right applicable worldwide |
+| **B.** | The company is non-compliant due to unlawful processing and incomplete erasure                                   |
+| **C.** | The company is compliant if data is only used internally for analytics                                           |
+| **D.** | The company is non-compliant because GDPR is a basic human right applicable worldwide                            |
 
 ---
 
@@ -200,12 +200,12 @@ Consider two transactions operating under strict two-phase locking (Strict 2PL):
 
 **What will happen?**
 
-| | |
-|---|---|
+|        |                                                          |
+| ------ | -------------------------------------------------------- |
 | **A.** | Both transactions complete successfully without conflict |
-| **B.** | A deadlock occurs between T1 and T2 |
-| **C.** | One transaction is rolled back due to dirty reads |
-| **D.** | The schedule is serialisable without blocking |
+| **B.** | A deadlock occurs between T1 and T2                      |
+| **C.** | One transaction is rolled back due to dirty reads        |
+| **D.** | The schedule is serialisable without blocking            |
 
 ---
 
@@ -227,12 +227,12 @@ They request locks in the following order:
 
 **Assume the system uses Wait-Die. Which of the following correctly describes what happens?**
 
-| | |
-|---|---|
-| **A.** | T1 aborts |
-| **B.** | T3 aborts |
+|        |                     |
+| ------ | ------------------- |
+| **A.** | T1 aborts           |
+| **B.** | T3 aborts           |
 | **C.** | T1 waits, T3 aborts |
-| **D.** | T2 aborts |
+| **D.** | T2 aborts           |
 
 ---
 
@@ -256,13 +256,13 @@ They request locks in the following order:
 
 **Assume the system uses Wound-Wait. Which of the following correctly describes what happens?**
 
-| | |
-|---|---|
-| **A.** | T1 waits |
+|        |           |
+| ------ | --------- |
+| **A.** | T1 waits  |
 | **B.** | T2 aborts |
 | **C.** | T3 aborts |
-| **D.** | T2 waits |
+| **D.** | T2 waits  |
 
 ---
 
-*End of Sample Exam*
+_End of Sample Exam_

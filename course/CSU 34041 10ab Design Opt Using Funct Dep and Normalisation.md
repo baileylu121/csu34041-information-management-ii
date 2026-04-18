@@ -55,12 +55,12 @@ We previously looked at **Functional Dependency** as a modelling technique. We n
 
 A set of **informal guidelines** that can be used as measures to determine the quality of a relation schema design.
 
-| Measure | Description |
-|---------|-------------|
-| **1** | Attribute Semantics |
-| **2** | Reduction of Redundancy |
-| **3** | Reduction of NULLs |
-| **4** | Generation of Spurious Tuples |
+| Measure | Description                   |
+| ------- | ----------------------------- |
+| **1**   | Attribute Semantics           |
+| **2**   | Reduction of Redundancy       |
+| **3**   | Reduction of NULLs            |
+| **4**   | Generation of Spurious Tuples |
 
 > These measures are not always independent of one another.
 
@@ -157,12 +157,12 @@ If many attributes do not apply to all tuples of a relation, you end up with man
 
 A `NULL` value may typically have **two interpretations**:
 
-| Interpretation | Example |
-|---|---|
+| Interpretation               | Example                                                         |
+| ---------------------------- | --------------------------------------------------------------- |
 | **Missing but inapplicable** | Zip Code for Irish addresses (although we do now have EirCode!) |
-| **Missing but applicable** | An employee's date of birth is empty |
-| **Unknown** | — |
-| **Known but absent** | — |
+| **Missing but applicable**   | An employee's date of birth is empty                            |
+| **Unknown**                  | —                                                               |
+| **Known but absent**         | —                                                               |
 
 ### Violating Guideline 3
 
@@ -171,8 +171,8 @@ If only **15% of employees** have an office, then including an `Office_Number` a
 Instead, create an **`EMPLOYEE_OFFICE`** relation:
 
 | Ssn | Office_Number |
-|-----|--------------|
-| — | — |
+| --- | ------------- |
+| —   | —             |
 
 A tuple is entered in the relation for all employees with an office.
 
@@ -195,12 +195,12 @@ A tuple is entered in the relation for all employees with an office.
 
 ## Design Guidelines Summary
 
-| Guideline | Principle |
-|-----------|-----------|
-| **1** | Ensure attribute semantics are easily understood |
-| **2** | Reduce redundant information in tuples |
-| **3** | Reduce the number of `NULL` values in tuples |
-| **4** | Ensure spurious tuples are not generated — enforce PK/FK matching |
+| Guideline | Principle                                                         |
+| --------- | ----------------------------------------------------------------- |
+| **1**     | Ensure attribute semantics are easily understood                  |
+| **2**     | Reduce redundant information in tuples                            |
+| **3**     | Reduce the number of `NULL` values in tuples                      |
+| **4**     | Ensure spurious tuples are not generated — enforce PK/FK matching |
 
 ---
 
@@ -222,15 +222,15 @@ Functional Dependency Analysis is a **formal tool** for analysing relational sch
 
 A **functional dependency** is a constraint between two sets of attributes.
 
-Suppose our relational database schema has *n* attributes: A₁, A₂, …, Aₙ. Think of the whole database as being described by a single **universal relation**: R = {A₁, A₂, …, Aₙ}.
+Suppose our relational database schema has _n_ attributes: A₁, A₂, …, Aₙ. Think of the whole database as being described by a single **universal relation**: R = {A₁, A₂, …, Aₙ}.
 
 A functional dependency, denoted by **X → Y**:
 
-- Specifies a constraint on the possible tuples that can form a relation state *r* of R
+- Specifies a constraint on the possible tuples that can form a relation state _r_ of R
 - Between two sets of attributes X and Y (subsets of R)
-- The constraint: for any two tuples *t₁* and *t₂* in *r*(R) that have **t₁[X] = t₂[X]**, they must also have **t₁[Y] = t₂[Y]**
+- The constraint: for any two tuples _t₁_ and _t₂_ in _r_(R) that have **t₁[X] = t₂[X]**, they must also have **t₁[Y] = t₂[Y]**
 
-In other words: the values of attribute set X from a tuple in *r* **uniquely determine** (or **functionally determine**) the values of attribute set Y.
+In other words: the values of attribute set X from a tuple in _r_ **uniquely determine** (or **functionally determine**) the values of attribute set Y.
 
 - There is a functional dependency **from X to Y**, or
 - **Y is functionally dependent on X**
@@ -245,6 +245,7 @@ In other words: the values of attribute set X from a tuple in *r* **uniquely det
 ## Things to Note
 
 - If X is a **candidate key** of R, then **X → Y** for any subset of attributes Y of R. Thus **X → R**.
+
   > In other words: if X has to be unique for every instance of R, then X uniquely determines all the other attribute values of R.
 
 - If **X → Y** in R, this does **not** necessarily imply that **Y → X** in R.
@@ -274,7 +275,7 @@ Pnumber   → {Pname, Plocation}
 
 ## Disproving a FD
 
-> You **cannot** use a single set of data *r*(R) to **prove** a FD, but you **can** use it to **disprove** a FD.
+> You **cannot** use a single set of data _r_(R) to **prove** a FD, but you **can** use it to **disprove** a FD.
 
 **Can we prove** `Text → Course`?
 
@@ -306,12 +307,12 @@ The normalisation process takes a relational schema through a series of tests to
 
 ### Normal Forms
 
-| Normal Form | Abbreviation |
-|-------------|-------------|
-| First Normal Form | **1NF** |
-| Second Normal Form | **2NF** |
-| Third Normal Form | **3NF** |
-| Boyce-Codd Normal Form | **BCNF** |
+| Normal Form            | Abbreviation |
+| ---------------------- | ------------ |
+| First Normal Form      | **1NF**      |
+| Second Normal Form     | **2NF**      |
+| Third Normal Form      | **3NF**      |
+| Boyce-Codd Normal Form | **BCNF**     |
 
 Normalisation can be considered **relational design by analysis**:
 
@@ -336,6 +337,7 @@ Relations which do **not** pass the normal form tests are **decomposed** into sm
 Normalisation through decomposition must confirm **two properties** in the resulting database design:
 
 1. **Non-Additive (Lossless) Join Property**
+
    > This guarantees that spurious tuple generation does **not** occur.
 
 2. **Dependency Preservation Property**
@@ -354,7 +356,7 @@ Normalisation provides database designers with:
 
 > In 1NF, **all attribute values must be atomic**.
 >
-> The word *atom* comes from the Latin *atomis*, meaning indivisible (or literally "not to cut").
+> The word _atom_ comes from the Latin _atomis_, meaning indivisible (or literally "not to cut").
 
 1NF dictates that **at every row–column intersection**, there exists only **one value**, not a list of values.
 
@@ -431,6 +433,7 @@ A table is in **Second Normal Form (2NF)** if:
 - Every non-key column is **fully functionally dependent** on the **entire primary key**.
 
 > In other words:
+>
 > - Tables should only store data relating to **one "thing"** (or entity)
 > - That entity should be described by its **primary key**
 
@@ -452,10 +455,10 @@ EMP_PROJ
 
 **Composite Primary Key:** {Ssn, Pnumber}
 
-| Functional Dependency | Type |
-|---|---|
-| {Ssn, Pnumber} → Hours | **Full FD** |
-| {Ssn, Pnumber} → Ename | **Partial FD** |
+| Functional Dependency               | Type           |
+| ----------------------------------- | -------------- |
+| {Ssn, Pnumber} → Hours              | **Full FD**    |
+| {Ssn, Pnumber} → Ename              | **Partial FD** |
 | {Ssn, Pnumber} → {Pname, Plocation} | **Partial FD** |
 
 **Note 1:** `Ename` only **partially** depends on the composite primary key — it does not functionally depend on the `Pnumber` part.
@@ -507,6 +510,7 @@ A functional dependency **X → Y** in relation R is said to be **transitive dep
 ### Example
 
 > **Ssn → Dmgr_ssn** is a transitive dependency through **Dnumber**:
+>
 > - **Ssn → Dnumber** and **Dnumber → Dmgr_ssn** hold
 > - **Dnumber** is not a key itself or a subset of any key of `EMP_DEPT`
 
@@ -553,14 +557,14 @@ Every relation has one **default superkey** — the set of all its attributes (a
 
 ### Car Example
 
-| Attribute | |
-|-----------|---|
-| Engine_No | |
-| Reg_Year | |
-| Reg_County | |
-| Reg_Num | |
-| Model | |
-| CC | |
+| Attribute  |     |
+| ---------- | --- |
+| Engine_No  |     |
+| Reg_Year   |     |
+| Reg_County |     |
+| Reg_Num    |     |
+| Model      |     |
+| CC         |     |
 
 **Candidate Keys:**
 
@@ -621,10 +625,10 @@ LOTS
 
 ### Sample Data
 
-| Property_id# | County | Lot# | Area |
-|---|---|---|---|
-| 65 | Dublin | 701 | Fingal |
-| 66 | Cork | 702 | Bantry |
+| Property_id# | County | Lot# | Area   |
+| ------------ | ------ | ---- | ------ |
+| 65           | Dublin | 701  | Fingal |
+| 66           | Cork   | 702  | Bantry |
 
 ### The BCNF Violation
 
@@ -655,12 +659,12 @@ This **breaks BCNF** — `Area` is **not a superkey**.
 
 Normalisation **tests** a relation schema to certify whether it satisfies a normal form:
 
-| Normal Form | Abbreviation |
-|-------------|-------------|
-| First Normal Form | **1NF** |
-| Second Normal Form | **2NF** |
-| Third Normal Form | **3NF** |
-| Boyce-Codd Normal Form | **BCNF** |
+| Normal Form            | Abbreviation |
+| ---------------------- | ------------ |
+| First Normal Form      | **1NF**      |
+| Second Normal Form     | **2NF**      |
+| Third Normal Form      | **3NF**      |
+| Boyce-Codd Normal Form | **BCNF**     |
 
 ### Process
 

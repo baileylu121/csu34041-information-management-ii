@@ -34,10 +34,10 @@ Constraints that **cannot** be expressed within the Relational Schema.
 
 > Integrity and Security are related but they are **not** the same.
 
-| **Integrity** | **Security** |
-|---|---|
-| Concerned with *accidental* corruption | Concerned with *deliberate* corruption |
-| Integrity Constraints | Security Policies — Access Control |
+| **Integrity**                          | **Security**                           |
+| -------------------------------------- | -------------------------------------- |
+| Concerned with _accidental_ corruption | Concerned with _deliberate_ corruption |
+| Integrity Constraints                  | Security Policies — Access Control     |
 
 ---
 
@@ -90,8 +90,8 @@ Entity constraints are specified on **individual relations**; Referential Integr
 
 ## NULL Keys
 
-| Rule | Detail |
-|---|---|
+| Rule            | Detail                               |
+| --------------- | ------------------------------------ |
 | **Primary Key** | No part of a Primary Key can be NULL |
 | **Foreign Key** | May be NULL in certain circumstances |
 
@@ -107,10 +107,10 @@ If a composite Foreign Key is allowed to contain NULLs, then **either all** the 
 
 Consider a `GP_ID` (Primary Key) and `GP` (Foreign Key) in a relation.
 
-| Question | Answer |
-|---|---|
-| Can `GP_ID` be NULL? | **NO** — `GP_ID` is a primary key |
-| Can `GP` be NULL? | **Yes** — `GP` is only a foreign key, so it can be NULL |
+| Question             | Answer                                                  |
+| -------------------- | ------------------------------------------------------- |
+| Can `GP_ID` be NULL? | **NO** — `GP_ID` is a primary key                       |
+| Can `GP` be NULL?    | **Yes** — `GP` is only a foreign key, so it can be NULL |
 
 ---
 
@@ -136,7 +136,7 @@ These operations must not violate the integrity constraints specified for the da
 
 ## Insert Constraint Violation
 
-An insert provides a list of attribute values for a new tuple *t* that is to be added to relation *R*.
+An insert provides a list of attribute values for a new tuple _t_ that is to be added to relation _R_.
 
 Inserts can violate **all** integrity constraints:
 
@@ -291,10 +291,10 @@ The alternatives to the cascading of updates or deletes are:
 
 ### Table vs Assertions
 
-| Type | Description |
-|---|---|
+| Type                  | Description                                                                                                                                                                               |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Table Constraints** | Specified as part of relation/table definition; specified on each table individually; typically specified during table creation in `CREATE TABLE`; can be added later using `ALTER TABLE` |
-| **Assertions** | Constraints that affect more than one table |
+| **Assertions**        | Constraints that affect more than one table                                                                                                                                               |
 
 ---
 
@@ -438,16 +438,16 @@ Constraints that affect **more than one table** are called Assertions.
 
 A trigger in SQL is a set of actions that automatically **runs (fires)** when a specific event happens in a database.
 
-> **Think of it like:** *"If something happens in a table, automatically do this."*
+> **Think of it like:** _"If something happens in a table, automatically do this."_
 
 ### Why Use Triggers?
 
-| Purpose | Description |
-|---|---|
-| **Enforce business rules** | Apply domain-specific logic |
-| **Maintain data consistency** | Ensure invariants across operations |
-| **Automatically log changes** (audit trail) | Track modifications over time |
-| **Prevent invalid operations** | Go beyond what CHECK can express |
+| Purpose                                     | Description                         |
+| ------------------------------------------- | ----------------------------------- |
+| **Enforce business rules**                  | Apply domain-specific logic         |
+| **Maintain data consistency**               | Ensure invariants across operations |
+| **Automatically log changes** (audit trail) | Track modifications over time       |
+| **Prevent invalid operations**              | Go beyond what CHECK can express    |
 
 ---
 
@@ -475,25 +475,25 @@ Determine whether the following commands will be successful. If not, identify wh
 
 ### Insert Operations
 
-| # | Command |
-|---|---|
-| A | `INSERT INTO Project VALUES ('Awesome Project', NULL, 'London', 5)` |
-| B | `INSERT INTO Works_on VALUES ('999887777', 20, NULL)` |
-| C | `INSERT INTO Dependent VALUES ('123456789', 'Elizabeth', 'F', '1991-05-15', 'Daughter')` |
-| D | `INSERT INTO Employee VALUES ('Cecilia', 'F', 'Kolonsky', '677678989', '1960-04-05', '6357 Windswept, Katy, TX', 'F', 28000, '987654321', 8)` |
+| #   | Command                                                                                                                                       |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| A   | `INSERT INTO Project VALUES ('Awesome Project', NULL, 'London', 5)`                                                                           |
+| B   | `INSERT INTO Works_on VALUES ('999887777', 20, NULL)`                                                                                         |
+| C   | `INSERT INTO Dependent VALUES ('123456789', 'Elizabeth', 'F', '1991-05-15', 'Daughter')`                                                      |
+| D   | `INSERT INTO Employee VALUES ('Cecilia', 'F', 'Kolonsky', '677678989', '1960-04-05', '6357 Windswept, Katy, TX', 'F', 28000, '987654321', 8)` |
 
 ### Delete Operations
 
-| # | Command |
-|---|---|
-| E | `DELETE FROM Dependent WHERE ESSN = '123456789'` |
-| F | `DELETE FROM Department WHERE Dno = 1` |
-| G | `DELETE FROM Employee WHERE SSN = '123456789'` |
+| #   | Command                                          |
+| --- | ------------------------------------------------ |
+| E   | `DELETE FROM Dependent WHERE ESSN = '123456789'` |
+| F   | `DELETE FROM Department WHERE Dno = 1`           |
+| G   | `DELETE FROM Employee WHERE SSN = '123456789'`   |
 
 ### Update Operations
 
-| # | Command |
-|---|---|
-| H | `UPDATE Department SET Mgr_ssn = NULL WHERE Dno = 5` |
-| I | `UPDATE Dependent SET Dob = '1983-09-25' WHERE ESSN = '333445555' AND Name = 'Theodore'` |
-| J | `UPDATE Works_on SET Pno = 25 WHERE ESSN = '123456789'` |
+| #   | Command                                                                                  |
+| --- | ---------------------------------------------------------------------------------------- |
+| H   | `UPDATE Department SET Mgr_ssn = NULL WHERE Dno = 5`                                     |
+| I   | `UPDATE Dependent SET Dob = '1983-09-25' WHERE ESSN = '333445555' AND Name = 'Theodore'` |
+| J   | `UPDATE Works_on SET Pno = 25 WHERE ESSN = '123456789'`                                  |

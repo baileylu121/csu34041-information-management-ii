@@ -61,6 +61,7 @@ Operators are designed to:
 Relational Algebra can be seen as a collection of operations on relations, which fall into **two groups**:
 
 ### Set Operations
+
 Standard mathematical operations on sets:
 
 - **Union**, **Intersection**, **Set Difference**
@@ -68,10 +69,10 @@ Standard mathematical operations on sets:
 
 ### Relational Database Operations
 
-| Category | Operations | Description |
-|----------|-----------|-------------|
-| **Unary** | SELECT, PROJECT | Operate on a single relation |
-| **Binary** | JOIN | Combine related tuples across two relations using a join condition |
+| Category   | Operations      | Description                                                        |
+| ---------- | --------------- | ------------------------------------------------------------------ |
+| **Unary**  | SELECT, PROJECT | Operate on a single relation                                       |
+| **Binary** | JOIN            | Combine related tuples across two relations using a join condition |
 
 ---
 
@@ -111,20 +112,22 @@ A Boolean expression made up of a number of clauses:
 <attribute name> <comparison op> <constant value>
 ```
 
-| Component | Description |
-|-----------|-------------|
-| **Attribute name** | Name of an attribute of R |
-| **Comparison op** | `=`, `<`, `≤`, `>`, `≥`, `≠` |
+| Component          | Description                                |
+| ------------------ | ------------------------------------------ |
+| **Attribute name** | Name of an attribute of R                  |
+| **Comparison op**  | `=`, `<`, `≤`, `>`, `≥`, `≠`               |
 | **Constant value** | A constant value from the attribute domain |
 
 #### Examples
 
 **Constant value comparison:**
+
 ```
 σ<sub>(Dno=4)</sub>(EMPLOYEE)
 ```
 
 **Attribute-to-attribute comparison:**
+
 ```
 σ<sub>(Salary > lower_tax_band)</sub>(EMPLOYEE)
 ```
@@ -133,11 +136,11 @@ A Boolean expression made up of a number of clauses:
 
 Selection conditions can be joined by Boolean operators:
 
-| Operator | Meaning |
-|----------|---------|
-| **AND** | `(cond1 AND cond2)` is TRUE if both are TRUE; otherwise FALSE |
-| **OR** | `(cond1 OR cond2)` is TRUE if either or both are TRUE; otherwise FALSE |
-| **NOT** | `(NOT cond)` is TRUE if cond is FALSE; otherwise FALSE |
+| Operator | Meaning                                                                |
+| -------- | ---------------------------------------------------------------------- |
+| **AND**  | `(cond1 AND cond2)` is TRUE if both are TRUE; otherwise FALSE          |
+| **OR**   | `(cond1 OR cond2)` is TRUE if either or both are TRUE; otherwise FALSE |
+| **NOT**  | `(NOT cond)` is TRUE if cond is FALSE; otherwise FALSE                 |
 
 #### Complex Example
 
@@ -149,10 +152,10 @@ Selection conditions can be joined by Boolean operators:
 
 ### Domain Restrictions
 
-| Domain Type | Valid Operators |
-|-------------|----------------|
-| **Ordered** (Numeric, Currency, Dates) | `=`, `<`, `≤`, `>`, `≥`, `≠` |
-| **Unordered** (e.g. Color = {Red, Blue, Green, Yellow, …}) | `=`, `≠` only |
+| Domain Type                                                | Valid Operators              |
+| ---------------------------------------------------------- | ---------------------------- |
+| **Ordered** (Numeric, Currency, Dates)                     | `=`, `<`, `≤`, `>`, `≥`, `≠` |
+| **Unordered** (e.g. Color = {Red, Blue, Green, Yellow, …}) | `=`, `≠` only                |
 
 > Some domains allow string operators like substring as a selection condition.
 
@@ -162,7 +165,7 @@ Selection conditions can be joined by Boolean operators:
 
 **Tuples:** The number of tuples returned is always **less than or equal to** the number of tuples in R.
 
-**Selectivity:** The fraction of tuples in a relation selected by a condition is known as the *selectivity* of that condition.
+**Selectivity:** The fraction of tuples in a relation selected by a condition is known as the _selectivity_ of that condition.
 
 > For `σ<sub>(Dno=4)</sub>(EMPLOYEE)`, if 3 out of 8 tuples match: selectivity = 3/8 = **37.5%**
 
@@ -181,11 +184,13 @@ Selection conditions can be joined by Boolean operators:
 ### Selection in SQL
 
 Algebraic notation:
+
 ```
 σ<sub>(Dno=4 AND Salary>25000)</sub>(EMPLOYEE)
 ```
 
 SQL equivalent:
+
 ```sql
 SELECT * FROM EMPLOYEE
 WHERE Dno = 4
@@ -238,11 +243,13 @@ Since the result of a Project operation must be a valid relation containing only
 ### Projection in SQL
 
 Algebraic notation:
+
 ```
 π<sub>(Fname, Lname, Salary)</sub>(EMPLOYEE)
 ```
 
 SQL equivalent:
+
 ```sql
 SELECT DISTINCT Fname, Lname, Salary
 FROM EMPLOYEE;
@@ -262,11 +269,13 @@ Complex queries often need to use **combinations** of Select and Project operati
 > Retrieve the last name, first name and salary of all employees who work in department 4 with a salary greater than 25,000, or work in department 5 with a salary greater than 30,000.
 
 **Selection first:**
+
 ```
 σ<sub>((Dno=4 AND Salary>25000) OR (Dno=5 AND Salary>30000))</sub>(EMPLOYEE)
 ```
 
 **Projection:**
+
 ```
 π<sub>(Lname, Fname, Salary)</sub>(EMPLOYEE)
 ```
@@ -366,10 +375,10 @@ To use set operations, two relations must be **union compatible**:
 
 Two relations R(A₁, A₂, …, Aₙ) and S(B₁, B₂, …, Bₙ) are union compatible if:
 
-- They have the same degree *n*
+- They have the same degree _n_
 - dom(Aᵢ) = dom(Bᵢ) for 1 ≤ i ≤ n
 
-> The *domain* is the permitted range of values for an attribute of an entity.
+> The _domain_ is the permitted range of values for an attribute of an entity.
 
 ---
 
@@ -409,18 +418,18 @@ The result is a new relation that includes all tuples that are in R **but not in
 ### Set Operations in SQL
 
 | Relational Algebra | SQL Keyword |
-|--------------------|-------------|
-| Union | `UNION` |
-| Intersection | `INTERSECT` |
-| Set Difference | `EXCEPT` |
+| ------------------ | ----------- |
+| Union              | `UNION`     |
+| Intersection       | `INTERSECT` |
+| Set Difference     | `EXCEPT`    |
 
 SQL also provides **multi-set operators** (which do not eliminate duplicates):
 
 | Multi-set Operator |
-|--------------------|
-| `UNION ALL` |
-| `INTERSECT ALL` |
-| `EXCEPT ALL` |
+| ------------------ |
+| `UNION ALL`        |
+| `INTERSECT ALL`    |
+| `EXCEPT ALL`       |
 
 ---
 
@@ -464,21 +473,21 @@ Given two tables:
 
 **EMPLOYEE**
 
-| EMPNO | NAME | JOB | DEPTNO |
-|-------|------|-----|--------|
-| 7856 | MCNULTY | OFFICER | 30 |
-| 7710 | DANIELS | LIEUTENANT | 40 |
-| 7992 | GREGGS | DETECTIVE | 10 |
-| 7428 | MORELAND | DETECTIVE | 20 |
+| EMPNO | NAME     | JOB        | DEPTNO |
+| ----- | -------- | ---------- | ------ |
+| 7856  | MCNULTY  | OFFICER    | 30     |
+| 7710  | DANIELS  | LIEUTENANT | 40     |
+| 7992  | GREGGS   | DETECTIVE  | 10     |
+| 7428  | MORELAND | DETECTIVE  | 20     |
 
 **DEPARTMENT**
 
-| DEPTNO | NAME | LOCATION |
-|--------|------|----------|
-| 10 | NARCOTICS | TOWER 221 |
-| 20 | HOMICIDE | CITY CENTER |
-| 30 | MARINE | DOCKS |
-| 40 | EVIDENCE | DOWNTOWN |
+| DEPTNO | NAME      | LOCATION    |
+| ------ | --------- | ----------- |
+| 10     | NARCOTICS | TOWER 221   |
+| 20     | HOMICIDE  | CITY CENTER |
+| 30     | MARINE    | DOCKS       |
+| 40     | EVIDENCE  | DOWNTOWN    |
 
 ```sql
 SELECT employee.name, job, department.name
@@ -488,12 +497,12 @@ WHERE employee.deptno = department.deptno;
 
 **Result:**
 
-| NAME | JOB | NAME |
-|------|-----|------|
-| MCNULTY | OFFICER | MARINE |
-| DANIELS | LIEUTENANT | EVIDENCE |
-| GREGGS | DETECTIVE | NARCOTICS |
-| MORELAND | DETECTIVE | HOMICIDE |
+| NAME     | JOB        | NAME      |
+| -------- | ---------- | --------- |
+| MCNULTY  | OFFICER    | MARINE    |
+| DANIELS  | LIEUTENANT | EVIDENCE  |
+| GREGGS   | DETECTIVE  | NARCOTICS |
+| MORELAND | DETECTIVE  | HOMICIDE  |
 
 ---
 

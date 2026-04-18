@@ -77,22 +77,22 @@ Organise the data needed for our application into a table.
 
 #### Persons Table
 
-| name | age | phone | cat's name |
-|------|-----|-------|------------|
-| Jack Lynch | 23 | … | Fluffy |
+| name       | age | phone | cat's name |
+| ---------- | --- | ----- | ---------- |
+| Jack Lynch | 23  | …     | Fluffy     |
 
 ---
 
 ### Example: Normalising — Cats Table
 
-| person_id | dob |
-|-----------|---------|
-| 1 | 1/1/00 |
+| person_id | dob    |
+| --------- | ------ |
+| 1         | 1/1/00 |
 
-| owner | name | color | dob |
-|-------|--------|-------|----------|
-| 1 | Fluffy | Brown | 1/1/20 |
-| 1 | Max | Black | 3/3/21 |
+| owner | name   | color | dob    |
+| ----- | ------ | ----- | ------ |
+| 1     | Fluffy | Brown | 1/1/20 |
+| 1     | Max    | Black | 3/3/21 |
 
 ---
 
@@ -107,14 +107,14 @@ Achieve **3 things**:
 ### Students Table
 
 | Student ID | First Name | Surname | Date of Birth | Address |
-|------------|------------|---------|---------------|---------|
-| … | … | … | … | … |
+| ---------- | ---------- | ------- | ------------- | ------- |
+| …          | …          | …       | …             | …       |
 
 ### Enrolments Table
 
 | Student ID | Module ID |
-|------------|-----------|
-| … | … |
+| ---------- | --------- |
+| …          | …         |
 
 ---
 
@@ -155,11 +155,11 @@ Most importantly, to make the data **more useful**.
 
 > Metadata adds **context** to data.
 
-| Metadata | Data |
-|----------|------|
-| Student Number | 89041258 |
-| Name | John Patrick Smith |
-| Account Balance | 132.56 |
+| Metadata        | Data               |
+| --------------- | ------------------ |
+| Student Number  | 89041258           |
+| Name            | John Patrick Smith |
+| Account Balance | 132.56             |
 
 Metadata can include:
 
@@ -190,19 +190,19 @@ A DBMS can manage a single database or a set of databases.
 
 - **Efficient, reliable and secure management** of large amounts of persistent data.
 - **Languages for defining the database:**
-  - *Data Definition Language (DDL)* — schema-level definitions
+  - _Data Definition Language (DDL)_ — schema-level definitions
   - Metadata (e.g. "student number is a seven-digit number plus one check digit")
 - **Languages for storing, retrieving and updating data:**
-  - *Data Manipulation Languages (DML)*
+  - _Data Manipulation Languages (DML)_
 
 ---
 
 ## DBMS Examples
 
-| Category | Examples |
-|----------|----------|
-| Open-source | MySQL, PostgreSQL, SQLite |
-| Commercial | Oracle, IBM DB2, SQL Server |
+| Category    | Examples                    |
+| ----------- | --------------------------- |
+| Open-source | MySQL, PostgreSQL, SQLite   |
+| Commercial  | Oracle, IBM DB2, SQL Server |
 
 ---
 
@@ -243,8 +243,8 @@ Data integrity is concerned with the **consistency and accuracy** of the data in
 
 Databases model parts of the real world in which many rules apply:
 
-- *"A student has only one address."*
-- *"A student must take 5 courses in the final year, or 4 courses plus a project."*
+- _"A student has only one address."_
+- _"A student must take 5 courses in the final year, or 4 courses plus a project."_
 
 DBMSs express such rules by means of **integrity constraints**.
 
@@ -312,12 +312,12 @@ The **Structured Query Language (SQL)** is the most commonly used language for r
 
 SQL is split into four sets of commands:
 
-| Category | Abbreviation | Purpose |
-|----------|-------------|---------|
-| Data Definition Language | **DDL** | Define schema structure |
-| Data Manipulation Language | **DML** | Modify stored data |
-| Data Query Language | **DQL** | Query / retrieve data |
-| Data Control Language | **DCL** | Control access / permissions |
+| Category                   | Abbreviation | Purpose                      |
+| -------------------------- | ------------ | ---------------------------- |
+| Data Definition Language   | **DDL**      | Define schema structure      |
+| Data Manipulation Language | **DML**      | Modify stored data           |
+| Data Query Language        | **DQL**      | Query / retrieve data        |
+| Data Control Language      | **DCL**      | Control access / permissions |
 
 ---
 
@@ -378,22 +378,22 @@ Ensures that the database can be returned to a **stable state** in case of error
 
 ## Database "Users"
 
-| Role | Responsibility |
-|------|---------------|
-| **DBMS Implementer** | Builds the DBMS system |
-| **Database Designer** | Designs the database, establishes the schema |
-| **Database Application Developer** | Develops programs that operate upon the DB |
-| **Database Administrator** | Has overall responsibility for the DB — specifying access constraints, selection of appropriate backup and recovery measures, monitoring performance, etc. |
+| Role                               | Responsibility                                                                                                                                             |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **DBMS Implementer**               | Builds the DBMS system                                                                                                                                     |
+| **Database Designer**              | Designs the database, establishes the schema                                                                                                               |
+| **Database Application Developer** | Develops programs that operate upon the DB                                                                                                                 |
+| **Database Administrator**         | Has overall responsibility for the DB — specifying access constraints, selection of appropriate backup and recovery measures, monitoring performance, etc. |
 
 ---
 
 ## Other Kinds of Databases
 
-| Type | Examples |
-|------|----------|
+| Type                                 | Examples                                                                                     |
+| ------------------------------------ | -------------------------------------------------------------------------------------------- |
 | **Analytical / Warehouse Databases** | Massively parallel processing (MPP) databases, Online analytical processing (OLAP) databases |
-| **XML Databases** | Document-oriented |
-| **Embedded / Local Databases** | Used inside applications and devices |
-| **NoSQL Databases** | Web-scale, non-relational, open-source |
-| **In-Memory Databases** | Stores data in main memory rather than on disk |
-| **Other** | Search and indexing databases |
+| **XML Databases**                    | Document-oriented                                                                            |
+| **Embedded / Local Databases**       | Used inside applications and devices                                                         |
+| **NoSQL Databases**                  | Web-scale, non-relational, open-source                                                       |
+| **In-Memory Databases**              | Stores data in main memory rather than on disk                                               |
+| **Other**                            | Search and indexing databases                                                                |

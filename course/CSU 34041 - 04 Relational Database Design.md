@@ -90,15 +90,15 @@ EngineerAllocationsToProjects (EngineerId, ProjectID)
 
 **AllInformation** (EngineerId, EngineerName, ProjectID, ProjectName)
 
-| EngineerId | EngineerName   | ProjectID | ProjectName  |
-|------------|----------------|-----------|--------------|
-| 007        | James Bond     | 888       | Ventilator   |
-| 008        | Peter Parker   | 888       | Ventilator   |
-| 009        | Bruce Wayne    | 999       | Heart Monitor|
+| EngineerId | EngineerName | ProjectID | ProjectName   |
+| ---------- | ------------ | --------- | ------------- |
+| 007        | James Bond   | 888       | Ventilator    |
+| 008        | Peter Parker | 888       | Ventilator    |
+| 009        | Bruce Wayne  | 999       | Heart Monitor |
 
 **Is there any unnecessary duplication?**
 
-→ **Yes.** ProjectName "Ventilator" is duplicated. If we delete one copy, we can still deduce the value from the other — so it is *unnecessarily duplicated* (i.e. redundant).
+→ **Yes.** ProjectName "Ventilator" is duplicated. If we delete one copy, we can still deduce the value from the other — so it is _unnecessarily duplicated_ (i.e. redundant).
 
 Unnecessary duplication creates problems when updating data — you need to ensure all copies are updated when their value changes.
 
@@ -111,17 +111,17 @@ Project (ProjectID, ProjectName, EngineerId)
 Engineer (EngineerId, EngineerName)
 ```
 
-| ProjectID | ProjectName  | EngineerId |
-|-----------|--------------|------------|
-| 888       | Ventilator   | 007        |
-| 888       | Ventilator   | 008        |
-| 999       | Heart Monitor| 009        |
+| ProjectID | ProjectName   | EngineerId |
+| --------- | ------------- | ---------- |
+| 888       | Ventilator    | 007        |
+| 888       | Ventilator    | 008        |
+| 999       | Heart Monitor | 009        |
 
-| EngineerId | EngineerName  |
-|------------|---------------|
-| 007        | James Bond    |
+| EngineerId | EngineerName      |
+| ---------- | ----------------- |
+| 007        | James Bond        |
 | 008        | Sarah-Jane Parker |
-| 009        | Bruce Wayne   |
+| 009        | Bruce Wayne       |
 
 **Is there unnecessary duplication?** → **Yes.** "Ventilator" is still duplicated.
 
@@ -134,14 +134,14 @@ Engineer (EngineerId, EngineerName, ProjectID)
 Project (ProjectID, ProjectName)
 ```
 
-| EngineerId | EngineerName    | ProjectID |
-|------------|-----------------|-----------|
-| 007        | James Bond      | 888       |
-| 008        | Sarah-Jane Parker | 888     |
-| 009        | Bruce Wayne     | 999       |
+| EngineerId | EngineerName      | ProjectID |
+| ---------- | ----------------- | --------- |
+| 007        | James Bond        | 888       |
+| 008        | Sarah-Jane Parker | 888       |
+| 009        | Bruce Wayne       | 999       |
 
 | ProjectID | ProjectName   |
-|-----------|---------------|
+| --------- | ------------- |
 | 888       | Ventilator    |
 | 999       | Heart Monitor |
 
@@ -157,19 +157,19 @@ Project (ProjectID, ProjectName)
 EngineerAllocationsToProjects (EngineerId, ProjectID)
 ```
 
-| EngineerId | EngineerName    |
-|------------|-----------------|
-| 007        | James Bond      |
+| EngineerId | EngineerName      |
+| ---------- | ----------------- |
+| 007        | James Bond        |
 | 008        | Sarah-Jane Parker |
-| 009        | Bruce Wayne   |
+| 009        | Bruce Wayne       |
 
 | ProjectID | ProjectName   |
-|-----------|---------------|
+| --------- | ------------- |
 | 888       | Ventilator    |
 | 999       | Heart Monitor |
 
 | EngineerId | ProjectID |
-|------------|-----------|
+| ---------- | --------- |
 | 007        | 888       |
 | 008        | 888       |
 | 009        | 999       |
@@ -193,7 +193,7 @@ You can't delete an attribute value in any of the tables without losing some inf
 ### Duplication vs. Redundancy: Example
 
 | Part# | Part Desc. |
-|-------|------------|
+| ----- | ---------- |
 | P2    | Nut        |
 | P2    | nut        |
 | P1    | Bolt       |
@@ -207,7 +207,7 @@ You can't delete an attribute value in any of the tables without losing some inf
 - We can see some information is **duplicated** (e.g. "nut" appears multiple times).
 - Is there any **redundant** information here?
 
-If we delete a "nut" value, we still have other rows with "nut" — we can still work out what the value was. But we have **not** lost information about *which part* has that description.
+If we delete a "nut" value, we still have other rows with "nut" — we can still work out what the value was. But we have **not** lost information about _which part_ has that description.
 
 → **Nut was duplicate but NOT redundant!** (each row is distinguishable by Part#)
 
@@ -218,7 +218,7 @@ If we delete a "nut" value, we still have other rows with "nut" — we can still
 Now introduce **S#** — the supplier ID.
 
 | S#  | Part# | Part Desc. |
-|-----|-------|------------|
+| --- | ----- | ---------- |
 | S2  | P1    | Bolt       |
 | S2  | P1    | bolt       |
 | S7  | P6    | Bolt       |
@@ -241,7 +241,7 @@ We cannot just delete values from the table! Preferable to **split the table int
 **Parts table:**
 
 | Part# | Part Desc. |
-|-------|------------|
+| ----- | ---------- |
 | P1    | Bolt       |
 | P4    | Nut        |
 | P6    | Bolt       |
@@ -249,7 +249,7 @@ We cannot just delete values from the table! Preferable to **split the table int
 **Supplies table:**
 
 | S#  | Part# |
-|-----|-------|
+| --- | ----- |
 | S2  | P1    |
 | S7  | P6    |
 | S2  | P4    |
@@ -267,13 +267,13 @@ So far we've assumed that table structures which permit redundancy can be recogn
 
 Consider this table **SP**:
 
-| S#  | P#  | Desc   |
-|-----|-----|--------|
-| S2  | P1  | Bolt   |
-| S7  | P1  | Bolt   |
-| S2  | P4  | Nut    |
+| S#  | P#  | Desc |
+| --- | --- | ---- |
+| S2  | P1  | Bolt |
+| S7  | P1  | Bolt |
+| S2  | P4  | Nut  |
 
-Inspection of table SP does **not** reveal any redundancy. It could even suggest that *"no two suppliers may supply the same part#"*.
+Inspection of table SP does **not** reveal any redundancy. It could even suggest that _"no two suppliers may supply the same part#"_.
 
 → **Need to take care not to conclude too much from inspecting data** — think more deeply about possible data.
 
@@ -281,15 +281,15 @@ Inspection of table SP does **not** reveal any redundancy. It could even suggest
 
 ### Repeating Groups
 
-We stated earlier: *"Each attribute must have at most one value in each row."*
+We stated earlier: _"Each attribute must have at most one value in each row."_
 
 Violating this — having multiple values in a single cell — creates **repeating groups**:
 
-| S#  | SName    | P#             |
-|-----|----------|----------------|
-| S5  | Wells    | P1             |
-| S2  | Heath    | P1, P4, P6     |
-| S9  | Edwards  | P8, P2, P6     |
+| S#  | SName   | P#         |
+| --- | ------- | ---------- |
+| S5  | Wells   | P1         |
+| S2  | Heath   | P1, P4, P6 |
+| S9  | Edwards | P8, P2, P6 |
 
 **Problems:**
 
@@ -307,7 +307,7 @@ Violating this — having multiple values in a single cell — creates **repeati
 Easiest way to eliminate repeating groups is to write out the table occurrence using a **vertical layout** and fill in the blanks by duplicating the non-repeating data:
 
 | S#  | SName   | P#  |
-|-----|---------|-----|
+| --- | ------- | --- |
 | S5  | Wells   | P1  |
 | S2  | Heath   | P1  |
 | S2  | Heath   | P4  |
@@ -327,7 +327,7 @@ Split the table into **two tables** so that the repeating group appears in one t
 **Suppliers table:**
 
 | S#  | SName   |
-|-----|---------|
+| --- | ------- |
 | S5  | Wells   |
 | S2  | Heath   |
 | S9  | Edwards |
@@ -335,7 +335,7 @@ Split the table into **two tables** so that the repeating group appears in one t
 **Supplies table:**
 
 | S#  | P#  |
-|-----|-----|
+| --- | --- |
 | S5  | P1  |
 | S2  | P1  |
 | S2  | P4  |
@@ -361,7 +361,7 @@ We need to know the **underlying rules** — the DBA must discover the rules whi
 ### Bad Database Design
 
 | customerID | date_of_birth | surname |
-|------------|---------------|---------|
+| ---------- | ------------- | ------- |
 | 1001       | 25-03-1980    | Jones   |
 | 1001       | 26-03-1980    | Jones   |
 | 1002       | 13-01-1985    | Smith   |
@@ -402,23 +402,23 @@ A relation is in first normal form if the domain of each attribute contains **on
 
 **1. Using the order of rows to represent information**
 
-| Names     |
-|-----------|
-| Scary     |
-| Sporty    |
-| Posh      |
-| Geri      |
-| Baby      |
+| Names  |
+| ------ |
+| Scary  |
+| Sporty |
+| Posh   |
+| Geri   |
+| Baby   |
 
 There is no right order — using row order to convey information violates 1NF.
 
 **2. Mixing data types in a single column**
 
-| Names     | height_in_cm |
-|-----------|--------------|
-| Scary     | 165          |
-| Sporty    | 167          |
-| Posh      | Between 160 and 165 |
+| Names  | height_in_cm        |
+| ------ | ------------------- |
+| Scary  | 165                 |
+| Sporty | 167                 |
+| Posh   | Between 160 and 165 |
 
 Now a column has a mixture of data types — violates 1NF.
 
@@ -428,9 +428,9 @@ Having duplicate primary key values — violates 1NF.
 
 **4. Repeating groups in a row**
 
-| cust_id | product_1    | quantity_1 | product_2      | quantity_2 | product_3    | quantity_3 |
-|---------|--------------|------------|----------------|------------|--------------|------------|
-| 1       | camp_soup    | 1          | sars_vinegar   | 2          | saxa_salt    | 1          |
+| cust_id | product_1 | quantity_1 | product_2    | quantity_2 | product_3 | quantity_3 |
+| ------- | --------- | ---------- | ------------ | ---------- | --------- | ---------- |
+| 1       | camp_soup | 1          | sars_vinegar | 2          | saxa_salt | 1          |
 
 Having repeated groups in the same row — violates 1NF.
 
@@ -447,7 +447,7 @@ Having a non-key attribute that is dependent on **part of** a primary key.
 **Example — Shopping Basket:**
 
 | cust_id | product       | quantity | cust_rating |
-|---------|---------------|----------|-------------|
+| ------- | ------------- | -------- | ----------- |
 | 1       | camp_soup     | 1        | gold        |
 | 1       | sars_vinegar  | 2        | gold        |
 | 1       | saxa_salt     | 1        | gold        |
@@ -458,13 +458,13 @@ Primary key is `{cust_id, product}`. But `cust_rating` depends only on `cust_id`
 
 **Remedy:** Decompose into:
 
-| cust_id | product  | quantity |
-|---------|----------|----------|
-| 1       | camp_soup| 1        |
-| 1       | sars_vinegar| 2     |
+| cust_id | product      | quantity |
+| ------- | ------------ | -------- |
+| 1       | camp_soup    | 1        |
+| 1       | sars_vinegar | 2        |
 
 | cust_id | cust_rating |
-|---------|-------------|
+| ------- | ----------- |
 | 1       | gold        |
 | 2       | silver      |
 
@@ -492,11 +492,11 @@ Decompose and set up a relation that includes the non-key attribute(s) that func
 
 ### Summary: Test & Remedy
 
-| Normal Form | Test | Remedy (Normalize) |
-|-------------|------|---------------------|
-| **First (1NF)** | Relation should have no multivalued attributes or nested relations. | Form new relations for each multivalued attribute or nested relation. |
+| Normal Form      | Test                                                                                                                                              | Remedy (Normalize)                                                                                                                                                                             |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **First (1NF)**  | Relation should have no multivalued attributes or nested relations.                                                                               | Form new relations for each multivalued attribute or nested relation.                                                                                                                          |
 | **Second (2NF)** | For relations where primary key contains multiple attributes, no non-key attribute should be functionally dependent on a part of the primary key. | Decompose and set up a new relation for each partial key with its dependent attribute(s). Keep a relation with the original primary key and any attributes fully functionally dependent on it. |
-| **Third (3NF)** | Relation should not have a non-key attribute functionally determined by another non-key attribute (no transitive dependency). | Decompose and set up a relation that includes the non-key attribute(s) that functionally determine other non-key attribute(s). |
+| **Third (3NF)**  | Relation should not have a non-key attribute functionally determined by another non-key attribute (no transitive dependency).                     | Decompose and set up a relation that includes the non-key attribute(s) that functionally determine other non-key attribute(s).                                                                 |
 
 ---
 
@@ -517,12 +517,12 @@ P# → Qty_in_Stock
 
 ### Determinants: Stock Table
 
-| P#  | P_Desc  | Qty   |
-|-----|---------|-------|
-| P1  | Bolt    | 5000  |
-| P2  | Nut     | 8300  |
-| P3  | Washer  | 9750  |
-| P4  | nut     | 2326  |
+| P#  | P_Desc | Qty  |
+| --- | ------ | ---- |
+| P1  | Bolt   | 5000 |
+| P2  | Nut    | 8300 |
+| P3  | Washer | 9750 |
+| P4  | nut    | 2326 |
 
 **Question:** Is P_Desc a determinant of P#? **No.**
 **Question:** Is P_Desc a determinant of Qty? **No.**
@@ -604,6 +604,7 @@ Therefore: A → C
 **Example:** Employee (Employee#, Employee_name, Salary)
 
 **Rules:**
+
 - No two rows should have the same value for Employee#
 - → Employee# is a **row identifier** of the table
 
@@ -664,7 +665,7 @@ Customer#  Salesman#  Salesman_name
 ### Parts and Suppliers Example
 
 | Qty | S#  | P_Desc | P#  | Unit Price |
-|-----|-----|--------|-----|------------|
+| --- | --- | ------ | --- | ---------- |
 
 - Potential redundancy in values of P_Desc and Unit_Price
 - **P# is a determinant but not a candidate identifier!**
@@ -676,13 +677,13 @@ Customer#  Salesman#  Salesman_name
 
 **Boyce/Codd rule for determining redundancy:**
 
-> *"Every determinant must be a candidate identifier."*
+> _"Every determinant must be a candidate identifier."_
 
 A table which obeys this rule is said to be in **Boyce/Codd Normal Form (BCNF)**.
 
 To put it another way:
 
-> *"All attributes in a relation should be dependent on the key, the whole key and nothing but the key."*
+> _"All attributes in a relation should be dependent on the key, the whole key and nothing but the key."_
 
 **Remedy:** A determinant which is **not** a candidate identifier is called a **non-identifying determinant**. To transform a badly normalised table into well-normalised tables:
 
@@ -699,7 +700,7 @@ Customer# → Salesman# → Salesman_name
 ```
 
 | Customer# | Salesman# | Salesman_name |
-|-----------|-----------|---------------|
+| --------- | --------- | ------------- |
 | 3         | A         | John          |
 | 4         | A         | John          |
 | 5         | B         | Jack          |
@@ -712,7 +713,7 @@ Customer# → Salesman# → Salesman_name
 **Customer-Salesman table:**
 
 | Customer# | Salesman# |
-|-----------|-----------|
+| --------- | --------- |
 | 3         | A         |
 | 4         | A         |
 | 5         | B         |
@@ -721,7 +722,7 @@ Customer# → Salesman# → Salesman_name
 **Salesman table:**
 
 | Salesman# | Salesman_name |
-|-----------|---------------|
+| --------- | ------------- |
 | A         | John          |
 | B         | Jack          |
 | C         | Jim           |
@@ -749,7 +750,7 @@ This has a **hidden transitive dependency**: order# → customer# → customer_n
 **Order-Customer table:**
 
 | order# | customer# |
-|--------|-----------|
+| ------ | --------- |
 | 1      | C1        |
 | 2      | C2        |
 | 3      | C1        |
@@ -757,11 +758,12 @@ This has a **hidden transitive dependency**: order# → customer# → customer_n
 **Customer_name table:**
 
 | customer# | customer_name |
-|-----------|---------------|
+| --------- | ------------- |
 | C1        | Smith         |
 | C2        | Jones         |
 
 If we delete Smith from row 3 of customer_name table:
+
 - We can still use order#(1) to find corresponding customer# in order-customer table
 - Search order-customer table for another order# placed by that customer
 - Use order# to search customer_name table for corresponding customer_name
@@ -808,7 +810,7 @@ Book# B15 is jointly authored by A2 and A5 and is classified under subject names
 If every author of a given book is always associated with **all** the subject-names under which the book is classified, then the attribute subject-name can contain certain redundant values.
 
 | Author# | Book# | Subject-name |
-|---------|-------|--------------|
+| ------- | ----- | ------------ |
 | A2      | B15   | biology      |
 | A2      | B15   | physics      |
 | A5      | B15   | biology      |
@@ -830,7 +832,7 @@ Full normalisation can be achieved by splitting the table into two parts:
 **Author-Book table:**
 
 | Author# | Book# |
-|---------|-------|
+| ------- | ----- |
 | A2      | B15   |
 | A5      | B15   |
 | A2      | B18   |
@@ -838,7 +840,7 @@ Full normalisation can be achieved by splitting the table into two parts:
 **Book-Subject table:**
 
 | Book# | Subject-name |
-|-------|--------------|
+| ----- | ------------ |
 | B15   | Biology      |
 | B15   | Physics      |
 | B18   | Physics      |
@@ -853,12 +855,12 @@ So far, emphasis has been placed on eliminating redundancy. **Further benefits r
 
 In a non-fully normalised table:
 
-| C#  | CName   | S#  | SName    |
-|-----|---------|-----|----------|
-| C1  | Brown   | S4  | Jones    |
-| C2  | Carter  | S7  | Samson   |
-| C3  | Cross   | S4  | Jones    |
-| C4  | Barns   | S8  | Baker    |
+| C#  | CName  | S#  | SName  |
+| --- | ------ | --- | ------ |
+| C1  | Brown  | S4  | Jones  |
+| C2  | Carter | S7  | Samson |
+| C3  | Cross  | S4  | Jones  |
+| C4  | Barns  | S8  | Baker  |
 
 - **Delete C2** → delete whole tuple → **lose salesman information** (Samson)
 - Deleting C# on its own is not allowed as it is an identifier and cannot be null
@@ -872,31 +874,31 @@ In a non-fully normalised table:
 
 **Customer table:**
 
-| C#  | CName   |
-|-----|---------|
-| C1  | Brown   |
-| C2  | Carter  |
-| C3  | Cross   |
-| C4  | Barns   |
+| C#  | CName  |
+| --- | ------ |
+| C1  | Brown  |
+| C2  | Carter |
+| C3  | Cross  |
+| C4  | Barns  |
 
 **Salesman table:**
 
-| S#  | SName   |
-|-----|---------|
-| S3  | Hall    |
-| S4  | Jones   |
-| S7  | Samson  |
-| S8  | Baker   |
+| S#  | SName  |
+| --- | ------ |
+| S3  | Hall   |
+| S4  | Jones  |
+| S7  | Samson |
+| S8  | Baker  |
 
 ---
 
 ### Summary: Codd's Normal Forms
 
-| Normal Form | Definition |
-|-------------|------------|
-| **1NF** | A relation is in first normal form if the domain of each attribute contains only atomic values and the value of each attribute contains only a single value from that domain. |
-| **2NF** | A relation is in 2nd normal form if, in addition to satisfying the criteria for 1st normal form, every non-key column is fully functionally dependent on the entire primary key. |
-| **3NF** | A relation is in 3rd normal form if, in addition to satisfying the criteria for 2nd normal form, no non-key attributes are transitively dependent upon the primary key. |
-| **BCNF** (3½ NF) | All attributes in a relation should be dependent on the key, the whole key and nothing but the key. |
+| Normal Form      | Definition                                                                                                                                                                       |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **1NF**          | A relation is in first normal form if the domain of each attribute contains only atomic values and the value of each attribute contains only a single value from that domain.    |
+| **2NF**          | A relation is in 2nd normal form if, in addition to satisfying the criteria for 1st normal form, every non-key column is fully functionally dependent on the entire primary key. |
+| **3NF**          | A relation is in 3rd normal form if, in addition to satisfying the criteria for 2nd normal form, no non-key attributes are transitively dependent upon the primary key.          |
+| **BCNF** (3½ NF) | All attributes in a relation should be dependent on the key, the whole key and nothing but the key.                                                                              |
 
 ---

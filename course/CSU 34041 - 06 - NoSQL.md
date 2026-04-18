@@ -49,12 +49,12 @@ Data is growing at an exponential rate.
 
 The internet has evolved from simple text documents to a richly interconnected web:
 
-| | | |
-|---|---|---|
-| Hypertext | Feeds | Blogs |
-| Text | UGC | Wikis |
-| Documents | Tagging | Folksonomies |
-| | Information connectivity | Ontologies / RDFa |
+|           |                          |                   |
+| --------- | ------------------------ | ----------------- |
+| Hypertext | Feeds                    | Blogs             |
+| Text      | UGC                      | Wikis             |
+| Documents | Tagging                  | Folksonomies      |
+|           | Information connectivity | Ontologies / RDFa |
 
 ---
 
@@ -70,11 +70,11 @@ The internet has evolved from simple text documents to a richly interconnected w
 
 Evolution of system architecture:
 
-| Era | Architecture |
-|---|---|
-| **1980** | Mainframe — single application, single database |
-| **1990** | Database as integration hub |
-| **2000** | Decoupled services |
+| Era       | Architecture                                                    |
+| --------- | --------------------------------------------------------------- |
+| **1980**  | Mainframe — single application, single database                 |
+| **1990**  | Database as integration hub                                     |
+| **2000**  | Decoupled services                                              |
 | **Today** | Multicore / Parallelisation / Distributed / Cloud / Schema-less |
 
 ---
@@ -106,8 +106,8 @@ Takes virtualisation to the extreme.
 
 ## Why NoSQL — The 3 Vs
 
-| | | |
-|---|---|---|
+|              |             |            |
+| ------------ | ----------- | ---------- |
 | **V**elocity | **V**ariety | **V**olume |
 
 - Explosion of (unstructured) data
@@ -187,7 +187,7 @@ This makes software development difficult — the difference between the relatio
 - **Availability of Scale**
 - **Utility Pricing** (pay per use)
 
-Filter → Store → Distribute  →  Store → Filter → Distribute
+Filter → Store → Distribute → Store → Filter → Distribute
 
 ---
 
@@ -307,11 +307,11 @@ The same data is replicated and copied over multiple nodes.
 
 Only **2 of 3** can be guaranteed:
 
-| | |
-|---|---|
-| **Consistency** | All nodes see the same data at the same time |
-| **Availability** | A guarantee that every request receives a response about whether it succeeded or failed |
-| **Partition Tolerance** | The system continues to operate despite arbitrary partitioning due to network failures |
+|                         |                                                                                         |
+| ----------------------- | --------------------------------------------------------------------------------------- |
+| **Consistency**         | All nodes see the same data at the same time                                            |
+| **Availability**        | A guarantee that every request receives a response about whether it succeeded or failed |
+| **Partition Tolerance** | The system continues to operate despite arbitrary partitioning due to network failures  |
 
 ---
 
@@ -328,7 +328,7 @@ It must be decided whether to:
 
 Eventual consistency is a consistency model used in distributed computing to achieve high availability that informally guarantees that, if no new updates are made to a given data item, eventually all accesses to that item will return the last updated value.
 
-**Reconciliation** is a problem — choosing an appropriate final state when concurrent updates have occurred, called *reconciliation*.
+**Reconciliation** is a problem — choosing an appropriate final state when concurrent updates have occurred, called _reconciliation_.
 
 ---
 
@@ -336,20 +336,20 @@ Eventual consistency is a consistency model used in distributed computing to ach
 
 ### ACID (SQL)
 
-| | |
-|---|---|
-| **A**tomic | Everything in a transaction succeeds or the entire transaction is rolled back |
-| **C**onsistent | A transaction cannot leave the database in an inconsistent state |
-| **I**solated | Transactions cannot interfere with each other |
-| **D**urable | Completed transactions persist, even when servers restart, etc. |
+|                |                                                                               |
+| -------------- | ----------------------------------------------------------------------------- |
+| **A**tomic     | Everything in a transaction succeeds or the entire transaction is rolled back |
+| **C**onsistent | A transaction cannot leave the database in an inconsistent state              |
+| **I**solated   | Transactions cannot interfere with each other                                 |
+| **D**urable    | Completed transactions persist, even when servers restart, etc.               |
 
 ### BASE (NoSQL)
 
-| | |
-|---|---|
-| **B**asic Availability | An application works basically all the time |
-| **S**oft-state | It does not have to be consistent all the time |
-| **E**ventual consistency | It will be in a known state eventually |
+|                          |                                                |
+| ------------------------ | ---------------------------------------------- |
+| **B**asic Availability   | An application works basically all the time    |
+| **S**oft-state           | It does not have to be consistent all the time |
+| **E**ventual consistency | It will be in a known state eventually         |
 
 Each node is always available to serve requests. As a trade-off, data modifications are propagated in the background to other nodes. The system may be inconsistent, but the data is still largely accurate.
 
@@ -369,12 +369,12 @@ The **storage model** describes how the database stores and manipulates the data
 
 ## Four Common Types of NoSQL
 
-| | |
-|---|---|
-| 1. | **Key-Value Stores** |
-| 2. | **Document Stores** |
-| 3. | **Column Stores** |
-| 4. | **Graph Stores** |
+|     |                      |
+| --- | -------------------- |
+| 1.  | **Key-Value Stores** |
+| 2.  | **Document Stores**  |
+| 3.  | **Column Stores**    |
+| 4.  | **Graph Stores**     |
 
 > **Note:** Lots of hybrids exist.
 
@@ -466,7 +466,7 @@ cars:
   "city": "London",
   "location": [45.123, 47.232],
   "cars": [
-    { "model": "Bentley",   "year": 1973, "value": 100000 },
+    { "model": "Bentley", "year": 1973, "value": 100000 },
     { "model": "Rolls Royce", "year": 1965, "value": 330000 }
   ]
 }
@@ -476,14 +476,14 @@ cars:
 
 ## Document DB Features
 
-| Feature | Example |
-|---|---|
+| Feature          | Example                                                                     |
+| ---------------- | --------------------------------------------------------------------------- |
 | **Rich Queries** | Find Paul's cars; Find everybody who owns a car built between 1970 and 1980 |
-| **Geospatial** | Find all of the car owners in London |
-| **Text Search** | Find all the cars described as having leather seats |
-| **Aggregation** | What's the average value of Paul's car collection? |
-| **Map Reduce** | For each make and model of car, how many exist? |
-| **MongoDB** | See document example above |
+| **Geospatial**   | Find all of the car owners in London                                        |
+| **Text Search**  | Find all the cars described as having leather seats                         |
+| **Aggregation**  | What's the average value of Paul's car collection?                          |
+| **Map Reduce**   | For each make and model of car, how many exist?                             |
+| **MongoDB**      | See document example above                                                  |
 
 ---
 
@@ -504,11 +504,11 @@ Store data as **columns** rather than rows.
 
 ## Relational / Row-Order Databases
 
-| ID | Name | Salary | Start Date |
-|---|---|---|---|
-| 1 | Joe D | $24,000 | 1/Jun/1970 |
-| 2 | Peter J | $28,000 | 1/Feb/1972 |
-| 3 | Joe D | $23,000 | 1/Jan/1973 |
+| ID  | Name    | Salary  | Start Date |
+| --- | ------- | ------- | ---------- |
+| 1   | Joe D   | $24,000 | 1/Jun/1970 |
+| 2   | Peter J | $28,000 | 1/Feb/1972 |
+| 3   | Joe D   | $23,000 | 1/Jan/1973 |
 
 ---
 
@@ -538,14 +538,16 @@ Inverted indexes:
 ## Pros and Cons
 
 ### Relational: Good For
+
 - Queries that return **small subsets of rows**
 - Queries that use a **large subset of row data**
-- *e.g.* Find all employee data for employees with salary > $12,000
+- _e.g._ Find all employee data for employees with salary > $12,000
 
 ### Column: Good For
+
 - Queries that require **just a column of data**
 - Queries that require a **small subset of row data**
-- *e.g.* Give me the total salary outlay for all staff
+- _e.g._ Give me the total salary outlay for all staff
 
 ---
 
@@ -574,6 +576,7 @@ John ──drives──→ brand: "Volvo"       work for → company: "IBM"
 - Querying a graph database means **traversing the graph** by following the relationships
 
 **Pros:**
+
 - Representing objects of the real world that are highly interconnected
 - Traversing the relationships in these data models is **cheap**
 
@@ -592,6 +595,7 @@ Relational databases are **not ideally suited** to representing relationships:
 ## NoSQL vs. Relational Databases
 
 ### Pros
+
 - Flexible schema
 - Simple API
 - Scalable
@@ -599,6 +603,7 @@ Relational databases are **not ideally suited** to representing relationships:
 - Cheap
 
 ### Cons
+
 - Not ACID compliant
 - No standards
 - Eventual consistency

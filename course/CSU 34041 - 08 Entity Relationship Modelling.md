@@ -1,7 +1,7 @@
 # Entity Relationship Modelling
 
 **CSU 34041 — Information Management II**  
-*Information Management and Data Engineering*
+_Information Management and Data Engineering_
 
 ---
 
@@ -79,20 +79,20 @@ Several types of attributes occur and need to be modelled in the Entity-Relation
 ## Simple and Composite Attributes
 
 - **Composite attributes** can be divided into smaller sub-parts.
-  - *Example:* `Address`
+  - _Example:_ `Address`
 - Attributes that are not divisible are called **simple** (or **atomic**) attributes.
-  - *Example:* `Movie Certificate`, `Age`
+  - _Example:_ `Movie Certificate`, `Age`
 - Composite attributes can be **hierarchical**.
-  - *Example:* `Apartment number` → `Building number` → `Street`
+  - _Example:_ `Apartment number` → `Building number` → `Street`
 
 ---
 
 ## Single and Multi-Valued Attributes
 
 - Most attributes have a **single value** for each entity — such attributes are called **single-valued**.
-  - *Example:* `PPS number`, `Age`
+  - _Example:_ `PPS number`, `Age`
 - In some cases, an attribute can have a **set of values** for an entity — such attributes are called **multi-valued**.
-  - *Example:* `Genre` for a `Movie`, `Colour` for a `Car`
+  - _Example:_ `Genre` for a `Movie`, `Colour` for a `Car`
   - Some entities may have one value, others multiple.
 
 ---
@@ -100,7 +100,7 @@ Several types of attributes occur and need to be modelled in the Entity-Relation
 ## Stored versus Derived Attributes
 
 - In some cases, two or more attributes are related:
-  - *Example:* `Age` and `BirthDate`
+  - _Example:_ `Age` and `BirthDate`
 - `Age` can be calculated using today's date and a person's date of birth.
   - `Age` is therefore called a **derived attribute** — it is derivable from `BirthDate`.
   - `BirthDate` is called a **stored attribute**.
@@ -120,25 +120,25 @@ Some attributes can be derived from information in **related entities**, rather 
 ER diagrams **don't show single instances** of entities (or relations). They show **entity types**:
 
 - An **entity type** is identified by its name and attributes.
-  - *Example:* In a cinema database, `MOVIE` could be an entity type.
+  - _Example:_ In a cinema database, `MOVIE` could be an entity type.
   - All movie entities share the same attributes, but each instance has its own value for each attribute.
 - The **collection of all instances** of a particular entity type in a database is called an **entity set**.
 
-| Entity Type | Entity Set |
-|---|---|
-| `EMPLOYEE` — Name, Age, Salary | John Smith, 55, 80,000<br>Fred Brown, 40, 30,000<br>Judy Clark, 25, 45,000<br>… |
+| Entity Type                            | Entity Set                                                                                     |
+| -------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `EMPLOYEE` — Name, Age, Salary         | John Smith, 55, 80,000<br>Fred Brown, 40, 30,000<br>Judy Clark, 25, 45,000<br>…                |
 | `DEPARTMENT` — Name, Location, Manager | Research, Dundrum, John Smith<br>Sales, Dublin 1, Judy Clark<br>Online, Finglas, Bob King<br>… |
 
 ---
 
 ## Entity Relationship Diagrams
 
-| Notation | Meaning |
-|---|---|
-| **Rectangular box** | Entity Type (encloses the entity name) |
-| **Oval** | Attribute (attached to entity type by straight line) |
-| **Double oval** | Multi-valued attribute |
-| **Straight lines** | Composite attributes (attached to component attributes) |
+| Notation            | Meaning                                                 |
+| ------------------- | ------------------------------------------------------- |
+| **Rectangular box** | Entity Type (encloses the entity name)                  |
+| **Oval**            | Attribute (attached to entity type by straight line)    |
+| **Double oval**     | Multi-valued attribute                                  |
+| **Straight lines**  | Composite attributes (attached to component attributes) |
 
 ---
 
@@ -146,7 +146,7 @@ ER diagrams **don't show single instances** of entities (or relations). They sho
 
 - Each entity type usually has **one or more attributes** whose values are **unique** for each instance in the entity set.
 - An attribute whose values are used to uniquely identify each entity is called the **key attribute**.
-  - *Examples:* `ISBN`, `PPS`, `Student Number`
+  - _Examples:_ `ISBN`, `PPS`, `Student Number`
 - More than one attribute can be used to form the key — in this case the **combination** must be unique (**composite key**).
 
 **Key attributes are represented by <u>underlining</u> the attribute.**
@@ -180,7 +180,7 @@ ER diagrams **don't show single instances** of entities (or relations). They sho
         Cert
 ```
 
-*(Underlined attributes are key attributes.)*
+_(Underlined attributes are key attributes.)_
 
 ---
 
@@ -320,7 +320,7 @@ ER diagrams **don't show single instances** of entities (or relations). They sho
 
 - A **relationship** captures how two or more entity types are related to one another.
 - Whenever an attribute of an entity type refers to another entity type, a relationship exists.
-  - *Implicit relationships:* `SCREEN` and `THEATRE`, `SCREENING` and `MOVIE`, `SCREENING` and `SCREEN`.
+  - _Implicit relationships:_ `SCREEN` and `THEATRE`, `SCREENING` and `MOVIE`, `SCREENING` and `SCREEN`.
   - In the ER model, these references should **not** be represented as attributes, but as **relationships**.
 
 A relationship can be informally thought of as a **verb**, linking two or more **nouns**:
@@ -337,7 +337,7 @@ A relationship can be informally thought of as a **verb**, linking two or more *
 - As with entities, relationships have a **relationship type**, illustrated in an ER diagram.
 - The collection of all instances of a particular relationship type is called a **relationship set**.
 - Related entity types are said to **participate** in a relationship type.
-- Each relationship instance, *rᵢ*, is an association of entities, where the association includes exactly one entity from each of the participating entity types.
+- Each relationship instance, _rᵢ_, is an association of entities, where the association includes exactly one entity from each of the participating entity types.
 
 ---
 
@@ -402,8 +402,8 @@ Constraints **limit the possible combination** of entities that can participate 
 
 Two main types of relationship constraint:
 
-1. **Cardinality Constraints** — specify the *maximum* number of relationship instances an entity can participate in.
-2. **Participation Constraints** — specify the *minimum* number of relationship instances an entity can participate in.
+1. **Cardinality Constraints** — specify the _maximum_ number of relationship instances an entity can participate in.
+2. **Participation Constraints** — specify the _minimum_ number of relationship instances an entity can participate in.
 
 ---
 
@@ -422,10 +422,10 @@ Consider the `SHOW` relationship type:
 
 ### Possible Cardinality Ratios for Binary Relationships
 
-| Ratio | Name |
-|---|---|
-| **1 : 1** | One to One |
-| **1 : N** | One to Many |
+| Ratio     | Name         |
+| --------- | ------------ |
+| **1 : 1** | One to One   |
+| **1 : N** | One to Many  |
 | **M : N** | Many to Many |
 
 ---
@@ -525,9 +525,9 @@ Together, **cardinality constraints** and **participation constraints** are refe
 
 ### Notation
 
-| Notation | Meaning |
-|---|---|
-| **Single line** | Partial participation |
+| Notation        | Meaning                                    |
+| --------------- | ------------------------------------------ |
+| **Single line** | Partial participation                      |
 | **Double line** | Total participation (existence dependency) |
 
 ---
@@ -548,11 +548,11 @@ In the Entity Relationship Model, **relationship types can have attributes**, si
 
 These relationship attributes can be migrated to participating entities depending on cardinality:
 
-| Cardinality | Migration Rule |
-|---|---|
-| **1 : 1** | Attribute can be migrated to **either** side |
-| **1 : N** | Attribute can only be migrated to the **N side** |
-| **M : N** | Attribute **cannot** be migrated; remains as a relationship attribute |
+| Cardinality | Migration Rule                                                        |
+| ----------- | --------------------------------------------------------------------- |
+| **1 : 1**   | Attribute can be migrated to **either** side                          |
+| **1 : N**   | Attribute can only be migrated to the **N side**                      |
+| **M : N**   | Attribute **cannot** be migrated; remains as a relationship attribute |
 
 ### 1 : 1 Example
 
@@ -653,11 +653,11 @@ The `Contact` and `Hours` attributes **cannot** be migrated and remain as relati
 
 ### Relationships Summary
 
-| Relationship | Entities | Cardinality |
-|---|---|---|
-| `SHOW` | `MOVIE` → `SCREENING` | 1 : N |
-| `LOCALE` | `THEATRE` → `SCREEN` | 1 : N |
-| `DISPLAY` | `SCREENING` → `SCREEN` | 1 : N |
+| Relationship | Entities               | Cardinality |
+| ------------ | ---------------------- | ----------- |
+| `SHOW`       | `MOVIE` → `SCREENING`  | 1 : N       |
+| `LOCALE`     | `THEATRE` → `SCREEN`   | 1 : N       |
+| `DISPLAY`    | `SCREENING` → `SCREEN` | 1 : N       |
 
 ---
 
@@ -860,4 +860,4 @@ The `Contact` and `Hours` attributes **cannot** be migrated and remain as relati
 
 ---
 
-*Information Management and Data Engineering*
+_Information Management and Data Engineering_

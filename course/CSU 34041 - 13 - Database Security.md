@@ -24,14 +24,14 @@
 
 Integrity and Security are related but they are **not the same**.
 
-| **Integrity** | **Security** |
-|---|---|
-| Concerned with *accidental* corruption | Concerned with *deliberate* corruption |
+| **Integrity**                          | **Security**                           |
+| -------------------------------------- | -------------------------------------- |
+| Concerned with _accidental_ corruption | Concerned with _deliberate_ corruption |
 
-| **Integrity** | **Security** |
-|---|---|
+| **Integrity**         | **Security**      |
+| --------------------- | ----------------- |
 | Integrity Constraints | Security Policies |
-| | Access Control |
+|                       | Access Control    |
 
 ---
 
@@ -105,11 +105,11 @@ Can be specified on **entire relations** or **specific attributes** — determin
 
 ### Privilege Types
 
-| Privilege | Description |
-|---|---|
-| **Read** | Gives the ability to use `SELECT` to retrieve rows from the relation |
+| Privilege        | Description                                                                             |
+| ---------------- | --------------------------------------------------------------------------------------- |
+| **Read**         | Gives the ability to use `SELECT` to retrieve rows from the relation                    |
 | **Modification** | Gives the ability to use `INSERT`, `UPDATE` and `DELETE` to modify rows in the relation |
-| **Reference** | Gives the ability to refer to this relation when specifying integrity constraints |
+| **Reference**    | Gives the ability to refer to this relation when specifying integrity constraints       |
 
 ---
 
@@ -185,15 +185,15 @@ GRANT privilege ON relation TO user WITH GRANT OPTION;
 
 **Scenario 1 — Privileges propagate without the owner's knowledge:**
 
-1. **A** (owner of relation **R**) grants **B** the `DELETE` privilege on **R**, *with* `GRANT OPTION`
-2. **B** grants **C** the `DELETE` privilege on **R**, also *with* `GRANT OPTION`
+1. **A** (owner of relation **R**) grants **B** the `DELETE` privilege on **R**, _with_ `GRANT OPTION`
+2. **B** grants **C** the `DELETE` privilege on **R**, also _with_ `GRANT OPTION`
 3. Privileges propagate without the knowledge of the relation owner
 4. If **A** revokes the privilege granted to **B**, all privileges that **B** propagated should be automatically revoked by the DBMS
 
 **Scenario 2 — Revocation does not cascade when paths overlap:**
 
-1. **A** (owner of relation **R**) grants **B** the `DELETE` privilege on **R**, *with* `GRANT OPTION`
-2. **A** grants **C** the `DELETE` privilege on **R**, also *with* `GRANT OPTION`
+1. **A** (owner of relation **R**) grants **B** the `DELETE` privilege on **R**, _with_ `GRANT OPTION`
+2. **A** grants **C** the `DELETE` privilege on **R**, also _with_ `GRANT OPTION`
 3. **B** and **C** both grant **D** the `DELETE` privilege on **R**
 4. **B** later revokes the `DELETE` privilege from **D**
 5. **D** continues to have the `DELETE` privilege — it was also granted by **C**
@@ -333,10 +333,10 @@ Top Secret ≥ Secret ≥ Confidential ≥ Unclassified
 
 Each **subject** and **object** are given a security level:
 
-| Term | Description | Examples |
-|---|---|---|
-| **Subject** | The active entity requesting access | User account, application program |
-| **Object** | The passive entity being accessed | Relation, tuple, attribute, view, operation |
+| Term        | Description                         | Examples                                    |
+| ----------- | ----------------------------------- | ------------------------------------------- |
+| **Subject** | The active entity requesting access | User account, application program           |
+| **Object**  | The passive entity being accessed   | Relation, tuple, attribute, view, operation |
 
 The security level of the subject is **compared** with that of the object for the DBMS to decide if the action is permitted.
 
@@ -344,11 +344,11 @@ The security level of the subject is **compared** with that of the object for th
 
 ## Discretionary v Mandatory Access Control
 
-| **Discretionary Access Control** | **Mandatory Access Control** |
-|---|---|
-| Flexible | Rigid |
-| Complex to manage | Very secure |
-| Can be vulnerable to malicious attacks | |
+| **Discretionary Access Control**       | **Mandatory Access Control** |
+| -------------------------------------- | ---------------------------- |
+| Flexible                               | Rigid                        |
+| Complex to manage                      | Very secure                  |
+| Can be vulnerable to malicious attacks |                              |
 
 **Trade-off:** Security vs. Applicability
 
@@ -401,13 +401,13 @@ Most countries have GDPR, which requires holders of personal information to take
 
 Consider the **EMPLOYEE** relational database schema. Suppose that all the relations were created by (and hence are owned by) user **X**, who wants to grant the following privileges to user accounts **A**, **B**, **C**, **D** and **E**:
 
-| Account | Privileges Required |
-|---|---|
-| **A** | Can retrieve or modify any relation **except** `DEPENDENT`. Can grant any of these privileges to other users. |
-| **B** | Can retrieve all attributes of `EMPLOYEE` and `DEPARTMENT` **except** `SALARY`, `MGRSSN`, and `MGRSTARTDATE`. |
-| **C** | Can retrieve or modify `WORKS_ON`. Can only retrieve `FNAME`, `MINIT`, `LNAME`, `SSN` from `EMPLOYEE` and `PNAME`, `PNUMBER` from `PROJECT`. |
-| **D** | Can retrieve any attribute of `EMPLOYEE` or `DEPENDENT` and can modify `DEPENDENT`. |
-| **E** | Can retrieve any attribute of `EMPLOYEE` but **only** for tuples where `DNO = 3`. |
+| Account | Privileges Required                                                                                                                          |
+| ------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| **A**   | Can retrieve or modify any relation **except** `DEPENDENT`. Can grant any of these privileges to other users.                                |
+| **B**   | Can retrieve all attributes of `EMPLOYEE` and `DEPARTMENT` **except** `SALARY`, `MGRSSN`, and `MGRSTARTDATE`.                                |
+| **C**   | Can retrieve or modify `WORKS_ON`. Can only retrieve `FNAME`, `MINIT`, `LNAME`, `SSN` from `EMPLOYEE` and `PNAME`, `PNUMBER` from `PROJECT`. |
+| **D**   | Can retrieve any attribute of `EMPLOYEE` or `DEPENDENT` and can modify `DEPENDENT`.                                                          |
+| **E**   | Can retrieve any attribute of `EMPLOYEE` but **only** for tuples where `DNO = 3`.                                                            |
 
 **Write SQL statements to grant these privileges. Use views where appropriate.**
 
