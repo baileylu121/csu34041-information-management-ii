@@ -1,5 +1,5 @@
-import type { Question } from '../data/quiz';
-import MermaidRenderer from './MermaidRenderer';
+import type { Question } from "../data/quiz";
+import MermaidRenderer from "./MermaidRenderer";
 
 interface QuestionCardProps {
   question: () => Question;
@@ -8,7 +8,7 @@ interface QuestionCardProps {
   onSelect: (index: number) => void;
 }
 
-const optionLabels = ['A', 'B', 'C', 'D'];
+const optionLabels = ["A", "B", "C", "D"];
 
 export default function QuestionCard(props: QuestionCardProps) {
   const { question, selectedAnswers, currentIndex, onSelect } = props;
@@ -23,11 +23,11 @@ export default function QuestionCard(props: QuestionCardProps) {
 
   const optionClass = (index: number) => {
     if (!answered()) {
-      return selected() === index ? 'selected' : '';
+      return selected() === index ? "selected" : "";
     }
-    if (index === q().correct) return 'correct';
-    if (index === selected() && index !== q().correct) return 'wrong';
-    return '';
+    if (index === q().correct) return "correct";
+    if (index === selected() && index !== q().correct) return "wrong";
+    return "";
   };
 
   return (
@@ -59,14 +59,12 @@ export default function QuestionCard(props: QuestionCardProps) {
       </div>
 
       {answered() && (
-        <div class={`explanation ${selected() === q().correct ? 'explanation-correct' : 'explanation-wrong'}`}>
+        <div
+          class={`explanation ${selected() === q().correct ? "explanation-correct" : "explanation-wrong"}`}
+        >
           <div class="explanation-header">
-            {selected() === q().correct ? (
-              <span class="icon">✓</span>
-            ) : (
-              <span class="icon">✗</span>
-            )}
-            <span>{selected() === q().correct ? 'Correct' : 'Incorrect'}</span>
+            {selected() === q().correct ? <span class="icon">✓</span> : <span class="icon">✗</span>}
+            <span>{selected() === q().correct ? "Correct" : "Incorrect"}</span>
           </div>
           <p class="explanation-text">{q().explanation}</p>
         </div>

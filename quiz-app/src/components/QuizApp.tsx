@@ -1,14 +1,14 @@
-import { createSignal, createMemo } from 'solid-js';
-import { Show } from 'solid-js/web';
-import { quizQuestions, type Question } from '../data/quiz';
-import QuestionCard from './QuestionCard';
-import ProgressBar from './ProgressBar';
-import Results from './Results';
+import { createSignal, createMemo } from "solid-js";
+import { Show } from "solid-js/web";
+import { quizQuestions, type Question } from "../data/quiz";
+import QuestionCard from "./QuestionCard";
+import ProgressBar from "./ProgressBar";
+import Results from "./Results";
 
-type QuizState = 'intro' | 'quiz' | 'results';
+type QuizState = "intro" | "quiz" | "results";
 
 export default function QuizApp() {
-  const [state, setState] = createSignal<QuizState>('intro');
+  const [state, setState] = createSignal<QuizState>("intro");
   const [currentIndex, setCurrentIndex] = createSignal(0);
   const [selectedAnswers, setSelectedAnswers] = createSignal<Map<number, number>>(new Map());
   const [markedForReview, setMarkedForReview] = createSignal<Set<number>>(new Set());
@@ -38,18 +38,18 @@ export default function QuizApp() {
   };
 
   const handleFinish = () => {
-    setState('results');
+    setState("results");
   };
 
   const handleRestart = () => {
     setSelectedAnswers(new Map());
     setMarkedForReview(new Set());
     setCurrentIndex(0);
-    setState('intro');
+    setState("intro");
   };
 
   const handleReview = () => {
-    setState('quiz');
+    setState("quiz");
   };
 
   const toggleReview = () => {
@@ -64,7 +64,7 @@ export default function QuizApp() {
 
   return (
     <>
-      <Show when={state() === 'intro'}>
+      <Show when={state() === "intro"}>
         <div class="intro-screen">
           <div class="intro-content">
             <h1 class="intro-title">Database Systems</h1>
@@ -76,7 +76,9 @@ export default function QuizApp() {
                 <span class="stat-label">Questions</span>
               </div>
               <div class="stat">
-                <span class="stat-value">{[...new Set(questions.map(q => q.category))].length}</span>
+                <span class="stat-value">
+                  {[...new Set(questions.map((q) => q.category))].length}
+                </span>
                 <span class="stat-label">Topics</span>
               </div>
               <div class="stat">
@@ -86,12 +88,12 @@ export default function QuizApp() {
             </div>
 
             <div class="intro-categories">
-              {[...new Set(questions.map(q => q.category))].map(cat => (
+              {[...new Set(questions.map((q) => q.category))].map((cat) => (
                 <span class="category-tag">{cat}</span>
               ))}
             </div>
 
-            <button class="btn btn-primary btn-large" onClick={() => setState('quiz')}>
+            <button class="btn btn-primary btn-large" onClick={() => setState("quiz")}>
               Begin Quiz
             </button>
 
@@ -102,7 +104,7 @@ export default function QuizApp() {
         </div>
       </Show>
 
-      <Show when={state() === 'results'}>
+      <Show when={state() === "results"}>
         <div class="results-screen">
           <Results
             questions={questions}
@@ -113,7 +115,7 @@ export default function QuizApp() {
         </div>
       </Show>
 
-      <Show when={state() === 'quiz'}>
+      <Show when={state() === "quiz"}>
         <div class="quiz-screen">
           <ProgressBar current={currentIndex() + 1} total={total} answered={answeredCount()} />
 
@@ -129,11 +131,8 @@ export default function QuizApp() {
               ← Previous
             </button>
 
-            <button
-              class="btn btn-ghost btn-review"
-              onClick={toggleReview}
-            >
-              {markedForReview().has(currentIndex()) ? '★ Marked' : '☆ Mark for Review'}
+            <button class="btn btn-ghost btn-review" onClick={toggleReview}>
+              {markedForReview().has(currentIndex()) ? "★ Marked" : "☆ Mark for Review"}
             </button>
 
             {currentIndex() === total - 1 ? (

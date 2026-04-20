@@ -2,11 +2,13 @@
   perSystem =
     { pkgs, lib, ... }:
     {
-      packages.default = pkgs.stdenvNoCC.mkDerivation {
+      packages.docs-site = pkgs.stdenvNoCC.mkDerivation {
         name = "zensical-site";
         src = lib.cleanSource ../.;
 
-        nativeBuildInputs = [ pkgs.zensical ];
+        nativeBuildInputs = [
+          pkgs.zensical
+        ];
 
         buildPhase = ''
           zensical build
