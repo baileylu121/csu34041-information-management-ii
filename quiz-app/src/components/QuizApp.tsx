@@ -11,7 +11,6 @@ export default function QuizApp() {
   const [state, setState] = createSignal<QuizState>("intro");
   const [currentIndex, setCurrentIndex] = createSignal(0);
   const [selectedAnswers, setSelectedAnswers] = createSignal<Map<number, number>>(new Map());
-  const [markedForReview, setMarkedForReview] = createSignal<Set<number>>(new Set());
 
   const questions = quizQuestions;
   const total = questions.length;
@@ -43,23 +42,8 @@ export default function QuizApp() {
 
   const handleRestart = () => {
     setSelectedAnswers(new Map());
-    setMarkedForReview(new Set());
     setCurrentIndex(0);
     setState("intro");
-  };
-
-  const handleReview = () => {
-    setState("quiz");
-  };
-
-  const toggleReview = () => {
-    const set = new Set(markedForReview());
-    if (set.has(currentIndex())) {
-      set.delete(currentIndex());
-    } else {
-      set.add(currentIndex());
-    }
-    setMarkedForReview(set);
   };
 
   return (
@@ -106,12 +90,7 @@ export default function QuizApp() {
 
       <Show when={state() === "results"}>
         <div class="results-screen">
-          <Results
-            questions={questions}
-            answers={selectedAnswers()}
-            onRestart={handleRestart}
-            onReview={handleReview}
-          />
+          <Results questions={questions} answers={selectedAnswers()} onRestart={handleRestart} />
         </div>
       </Show>
 
@@ -129,10 +108,6 @@ export default function QuizApp() {
           <div class="quiz-nav">
             <button class="btn btn-ghost" onClick={handlePrev} disabled={currentIndex() === 0}>
               ← Previous
-            </button>
-
-            <button class="btn btn-ghost btn-review" onClick={toggleReview}>
-              {markedForReview().has(currentIndex()) ? "★ Marked" : "☆ Mark for Review"}
             </button>
 
             {currentIndex() === total - 1 ? (

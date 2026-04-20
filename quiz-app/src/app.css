@@ -196,14 +196,6 @@ body {
   color: var(--text);
 }
 
-.btn-review {
-  color: var(--text-dim);
-}
-
-.btn-review:hover:not(:disabled) {
-  color: var(--warning);
-}
-
 .btn-large {
   padding: 0.9rem 2.5rem;
   font-size: 1rem;

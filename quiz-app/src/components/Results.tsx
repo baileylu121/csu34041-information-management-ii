@@ -4,12 +4,9 @@ interface ResultsProps {
   questions: Question[];
   answers: Map<number, number>;
   onRestart: () => void;
-  onReview: () => void;
 }
 
 export default function Results(props: ResultsProps) {
-  const { questions, answers, onRestart, onReview } = props;
-
   let correct = 0;
   questions.forEach((q, i) => {
     if (answers.get(i) === q.correct) correct++;
@@ -38,9 +35,6 @@ export default function Results(props: ResultsProps) {
       </p>
 
       <div class="result-actions">
-        <button class="btn btn-primary" onClick={onReview}>
-          Review Answers
-        </button>
         <button class="btn btn-secondary" onClick={onRestart}>
           Restart Quiz
         </button>
